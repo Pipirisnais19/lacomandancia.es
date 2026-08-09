@@ -3,7 +3,6 @@ import HeroBento from "@/components/HeroBento";
 import MetagameGrid from "@/components/MetagameGrid";
 import TournamentResults from "@/components/TournamentResults";
 import TournamentsSection from "@/components/TournamentsSection";
-import ValidatorSection from "@/components/ValidatorSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         <MetagameGrid />
         <TournamentResults />
         <TournamentsSection />
-        <ValidatorSection />
       </main>
       <Footer />
     </>

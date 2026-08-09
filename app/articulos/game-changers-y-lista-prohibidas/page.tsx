@@ -71,13 +71,6 @@ export default function Page() {
               className="font-semibold text-accent-gold hover:underline"
             >
               resto de reglas del formato
-            </a>{" "}
-            y validar el precio con nuestro{" "}
-            <a
-              href="/#validador"
-              className="font-semibold text-accent-gold hover:underline"
-            >
-              validador de mazos
             </a>
             .
           </p>

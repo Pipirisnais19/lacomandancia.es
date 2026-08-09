@@ -14,7 +14,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <p className="mt-5 text-center text-[11px] text-muted/70">
+        <p className="mt-5 text-center text-[11px] text-muted">
           Datos y colaboradores: Panda Games · Cardmarket API · Moxfield
         </p>
 

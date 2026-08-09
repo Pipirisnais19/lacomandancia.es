@@ -30,6 +30,7 @@ export default function Header() {
             id="whatsapp"
             href="#"
             onClick={handleWhatsappClick}
+            aria-label="Únete por WhatsApp"
             className="flex items-center gap-2 rounded-lg bg-accent-gold px-4 py-2 text-sm font-bold text-background shadow-lg shadow-accent-gold/20 transition-all hover:scale-[1.03] hover:bg-accent-gold-hover hover:shadow-accent-gold/40 active:scale-[0.98]"
           >
             <IconBrandWhatsapp className="h-5 w-5" strokeWidth={1.75} />

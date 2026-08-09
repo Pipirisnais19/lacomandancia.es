@@ -1,4 +1,4 @@
-import { IconChartBar, IconSearch } from "@tabler/icons-react";
+import { IconChartBar } from "@tabler/icons-react";
 
 export default function HeroBento() {
   return (
@@ -26,20 +26,13 @@ export default function HeroBento() {
           (Cardmarket EUR). 100% Carta Real (Sin Proxies).
         </p>
 
-        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-6 flex items-center justify-center">
           <a
             href="#metajuego"
             className="flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98]"
           >
             <IconChartBar className="h-4 w-4" strokeWidth={2} />
             Explorar Metajuego
-          </a>
-          <a
-            href="#validador"
-            className="flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent-gold/50 hover:text-accent-gold"
-          >
-            <IconSearch className="h-4 w-4" strokeWidth={1.75} />
-            Validar mi mazo
           </a>
         </div>
       </div>

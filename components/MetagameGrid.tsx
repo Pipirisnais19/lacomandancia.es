@@ -23,6 +23,7 @@ export default function MetagameGrid() {
               <img
                 src={scryfallArtUrl(featured.scryfallName)}
                 alt={featured.commander}
+                fetchPriority="high"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-card via-card/60 to-transparent" />
