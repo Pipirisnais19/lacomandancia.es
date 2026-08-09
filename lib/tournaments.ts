@@ -67,7 +67,7 @@ export const TOURNAMENTS: Tournament[] = [
         colorIdentity: ["G", "U"],
       },
       {
-        tier: "top4",
+        tier: "top8",
         commander: "Doctor Doom, King of Latveria",
         scryfallName: "Doctor Doom, King of Latveria",
         player: "KururuChan",
@@ -91,7 +91,7 @@ export const TOURNAMENTS: Tournament[] = [
         colorIdentity: ["B", "U"],
       },
       {
-        tier: "top8",
+        tier: "top4",
         commander: "Sokka, Tenacious Tactician",
         scryfallName: "Sokka, Tenacious Tactician",
         player: "otori",
