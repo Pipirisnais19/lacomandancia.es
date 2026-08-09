@@ -1,0 +1,65 @@
+export default function Logo({ className = "h-9 w-9" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="lc-gold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f0d878" />
+          <stop offset="50%" stopColor="#e3c34f" />
+          <stop offset="100%" stopColor="#9c7a1a" />
+        </linearGradient>
+      </defs>
+
+      {/* Anillo de mando: los 5 colores de Magic como marco */}
+      <g fill="none" strokeWidth="6.5">
+        <path d="M50,5 A45,45 0 0 1 92.8,36.1" stroke="#e3c34f" />
+        <path d="M92.8,36.1 A45,45 0 0 1 76.45,86.4" stroke="#4f8ffc" />
+        <path d="M76.45,86.4 A45,45 0 0 1 23.55,86.4" stroke="#b34ff5" />
+        <path d="M23.55,86.4 A45,45 0 0 1 7.2,36.1" stroke="#ff5757" />
+        <path d="M7.2,36.1 A45,45 0 0 1 50,5" stroke="#2ed573" />
+      </g>
+
+      <g transform="translate(50,50) scale(0.8) translate(-50,-50)">
+        {/* Crossed swords */}
+        <g stroke="url(#lc-gold)" strokeWidth="2.6" strokeLinecap="round">
+          <line x1="30" y1="10" x2="62" y2="34" />
+          <line x1="70" y1="10" x2="38" y2="34" />
+        </g>
+        <g fill="url(#lc-gold)">
+          <path d="M28,7 L33,9 L30,13 L26,11 Z" />
+          <path d="M72,7 L67,9 L70,13 L74,11 Z" />
+        </g>
+
+        {/* Crown */}
+        <path
+          d="M40,20 L44,12 L50,18 L56,12 L60,20 L59,25 L41,25 Z"
+          fill="url(#lc-gold)"
+        />
+        <rect x="40" y="25" width="20" height="3" rx="1" fill="url(#lc-gold)" />
+
+        {/* Shield */}
+        <path
+          d="M50,29 L70,35 L70,55 Q70,74 50,84 Q30,74 30,55 L30,35 Z"
+          fill="#15100c"
+          stroke="url(#lc-gold)"
+          strokeWidth="2.4"
+        />
+
+        {/* Spark / flame mark */}
+        <path
+          d="M50,44 C55,49 55,56 50,62 C45,56 45,49 50,44 Z"
+          fill="url(#lc-gold)"
+        />
+        <path
+          d="M50,50 C52.5,53 52.5,57 50,60 C47.5,57 47.5,53 50,50 Z"
+          fill="#15100c"
+        />
+      </g>
+    </svg>
+  );
+}

@@ -1,26 +1,256 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a12;
+  --surface: #14141f;
+  --card: #1b1b29;
+  --border: #2d2d40;
+  --foreground: #f5f4fa;
+  --muted: #a5a3b5;
+
+  /* The five colors of Magic — used as the site's accent system */
+  --mana-w: #e3c34f;
+  --mana-w-hover: #cbad3f;
+  --mana-u: #4f8ffc;
+  --mana-b: #b34ff5;
+  --mana-r: #ff5757;
+  --mana-g: #2ed573;
+
+  --accent-gold: var(--mana-w);
+  --accent-gold-hover: var(--mana-w-hover);
+  --accent-blue: var(--mana-u);
+  --accent-purple: var(--mana-b);
+  --accent-red: var(--mana-r);
+  --accent-green: var(--mana-g);
+  --whatsapp: #25d366;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-border: var(--border);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-mana-w: var(--mana-w);
+  --color-mana-u: var(--mana-u);
+  --color-mana-b: var(--mana-b);
+  --color-mana-r: var(--mana-r);
+  --color-mana-g: var(--mana-g);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-hover: var(--accent-gold-hover);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-red: var(--accent-red);
+  --color-accent-green: var(--accent-green);
+  --color-whatsapp: var(--whatsapp);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: var(--font-display);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.bg-grain {
+  position: relative;
+}
+
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(227, 195, 79, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 195, 79, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(27, 27, 41, 0.82), rgba(27, 27, 41, 0.6));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glow-border {
+  box-shadow:
+    0 0 0 1px rgba(227, 195, 79, 0.22),
+    0 8px 32px -12px rgba(0, 0, 0, 0.7);
+}
+
+.glow-border-hover {
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.glow-border-hover:hover {
+  box-shadow:
+    0 0 0 1px rgba(227, 195, 79, 0.5),
+    0 0 44px -8px rgba(227, 195, 79, 0.4),
+    0 16px 40px -16px rgba(0, 0, 0, 0.8);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 28px rgba(227, 195, 79, 0.45);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, -30px) scale(1.08);
+  }
+}
+
+.orb-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+
+.orb-drift-slow {
+  animation: drift 20s ease-in-out infinite reverse;
+}
+
+/* Ambient color washes — one per section, so color lives in the surface, not just icons */
+.ambient-gold::before,
+.ambient-blue::before,
+.ambient-purple::before,
+.ambient-red::before,
+.ambient-green::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-gold {
+  position: relative;
+}
+.ambient-gold::before {
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(227, 195, 79, 0.16), transparent);
+}
+
+.ambient-blue {
+  position: relative;
+}
+.ambient-blue::before {
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(79, 143, 252, 0.16), transparent);
+}
+
+.ambient-purple {
+  position: relative;
+}
+.ambient-purple::before {
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(179, 79, 245, 0.15), transparent);
+}
+
+.ambient-red {
+  position: relative;
+}
+.ambient-red::before {
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(255, 87, 87, 0.14), transparent);
+}
+
+.ambient-green {
+  position: relative;
+}
+.ambient-green::before {
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(46, 213, 115, 0.14), transparent);
+}
+
+/* Gradient border — WUBRG ring around featured cards, via mask-composite subtraction */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, var(--mana-w), var(--mana-u), var(--mana-b), var(--mana-r), var(--mana-g));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* WUBRG spectrum — the five colors of Magic in casting-cost order */
+.wubrg-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--mana-w),
+    var(--mana-u),
+    var(--mana-b),
+    var(--mana-r),
+    var(--mana-g)
+  );
+}
+
+.text-gradient-shift {
+  background: linear-gradient(
+    90deg,
+    var(--mana-w),
+    var(--mana-u),
+    var(--mana-b),
+    var(--mana-r),
+    var(--mana-g),
+    var(--mana-w)
+  );
+  background-size: 500% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 10s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Hide scrollbar on the mobile horizontal nav, fade affordance handles the "more" cue */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
