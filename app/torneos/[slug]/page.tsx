@@ -76,6 +76,7 @@ export default async function TournamentPage({
         "@type": "SportsEvent",
         name: tournament.name,
         startDate: tournament.dateISO,
+        eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: {
           "@type": "Place",
