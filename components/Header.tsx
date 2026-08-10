@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import Logo from "./Logo";
 
@@ -10,6 +11,7 @@ export default function Header() {
 
   function handleWhatsappClick(e: React.MouseEvent) {
     e.preventDefault();
+    track("whatsapp_click");
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   }

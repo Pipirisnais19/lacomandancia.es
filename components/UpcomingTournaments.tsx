@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { IconCalendarStats, IconMapPin, IconBrandInstagram } from "@tabler/icons-react";
 import { TOURNAMENTS } from "@/lib/tournaments";
 
@@ -44,6 +47,7 @@ export default function UpcomingTournaments() {
               <div className="mt-5 flex flex-wrap gap-2">
                 <Link
                   href={`/torneos/${t.slug}`}
+                  onClick={() => track("ver_detalles_click", { torneo: t.slug })}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-4 py-2.5 text-sm font-bold text-background transition-all hover:scale-[1.02] hover:bg-accent-gold-hover"
                 >
                   Ver detalles
