@@ -88,11 +88,13 @@ export default async function TournamentPage({
             addressCountry: "ES",
           },
         },
-        organizer: {
-          "@type": "SportsOrganization",
-          name: "La Comandancia",
-          url: "https://lacomandancia.es",
-        },
+        organizer: tournament.organizerName
+          ? { "@type": "Organization", name: tournament.organizerName }
+          : {
+              "@type": "SportsOrganization",
+              name: "La Comandancia",
+              url: "https://lacomandancia.es",
+            },
         ...(tournament.champion && {
           winner: {
             "@type": "Person",

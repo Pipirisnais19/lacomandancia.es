@@ -29,6 +29,7 @@ export type Tournament = {
   venue: string;
   venueUrl?: string;
   announcementUrl?: string;
+  organizerName?: string;
   dateLabel: string;
   dateISO?: string;
   participants?: number;
@@ -47,6 +48,7 @@ export const TOURNAMENTS: Tournament[] = [
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
     announcementUrl: "https://www.instagram.com/p/Dbu7mOsjKX3/?igsh=aWpuZXdkcTd5aHIy",
+    organizerName: "Asociación Vecinal Sural",
     dateLabel: "Domingo 6 de septiembre de 2026",
     dateISO: "2026-09-06",
     status: "proximo",

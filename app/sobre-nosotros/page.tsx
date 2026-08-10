@@ -51,11 +51,13 @@ export default function SobreNosotrosPage() {
             3ª.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
-            En 2026 el proyecto empezó a crecer más allá de una sola tienda:
-            la Asociación Vecinal Sural se sumó para organizar el torneo
-            Commander Ultrabudget 20€, como parte de las Fiestas Patronales
-            de Alcorcón — la primera colaboración de La Comandancia con una
-            entidad fuera de Panda Games.
+            La Comandancia todavía está en proceso de formación como
+            proyecto, y parte de eso es apoyar iniciativas que compartan
+            nuestro objetivo. La Asociación Vecinal Sural organiza el torneo
+            Commander Ultrabudget 20€, en colaboración con Panda Games, como
+            parte de las Fiestas Patronales de Alcorcón — nosotros no lo
+            organizamos, pero lo promovemos porque encaja directamente con
+            la idea de acercar Commander budget a más gente.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
             La idea sigue siendo simple:{" "}

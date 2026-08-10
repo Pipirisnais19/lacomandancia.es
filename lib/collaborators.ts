@@ -18,9 +18,9 @@ export const COLLABORATORS: Collaborator[] = [
   },
   {
     name: "Asociación Vecinal Sural",
-    role: "Co-organizador",
+    role: "Organizador",
     description:
-      "Se sumó a Panda Games para organizar el torneo Commander Ultrabudget 20€, como parte de las Fiestas Patronales de Alcorcón 2026 — la primera colaboración de La Comandancia con una entidad fuera de la tienda.",
+      "Organiza el torneo Commander Ultrabudget 20€ en colaboración con Panda Games, como parte de las Fiestas Patronales de Alcorcón 2026. La Comandancia no lo organiza, pero lo promovemos porque encaja con nuestro objetivo de acercar Commander budget a más jugadores.",
     email: "avvsural@gmail.com",
   },
 ];
