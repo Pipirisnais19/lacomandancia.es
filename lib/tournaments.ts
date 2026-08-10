@@ -285,6 +285,8 @@ export type DeckRecord = {
   result: "Campeón" | "Top 4" | "Top 8";
   tournamentName: string;
   tournamentSlug: string;
+  dateLabel: string;
+  dateISO?: string;
 };
 
 export function getAllDecks(): DeckRecord[] {
@@ -301,6 +303,8 @@ export function getAllDecks(): DeckRecord[] {
         result: "Campeón",
         tournamentName: t.name,
         tournamentSlug: t.slug,
+        dateLabel: t.dateLabel,
+        dateISO: t.dateISO,
       });
     }
 
@@ -315,6 +319,8 @@ export function getAllDecks(): DeckRecord[] {
           result: deck.tier === "top4" ? "Top 4" : "Top 8",
           tournamentName: t.name,
           tournamentSlug: t.slug,
+          dateLabel: t.dateLabel,
+          dateISO: t.dateISO,
         });
       }
     }

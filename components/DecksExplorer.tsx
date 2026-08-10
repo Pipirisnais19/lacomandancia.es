@@ -7,13 +7,6 @@ import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
 import type { DeckRecord } from "@/lib/tournaments";
 
 const COLORS: ManaColor[] = ["W", "U", "B", "R", "G"];
-const RESULTS: DeckRecord["result"][] = ["Campeón", "Top 4", "Top 8"];
-
-const FILTER_PILL_CLASS: Record<DeckRecord["result"], string> = {
-  Campeón: "border-accent-gold/40 bg-accent-gold/10 text-accent-gold",
-  "Top 4": "border-accent-blue/40 bg-accent-blue/10 text-accent-blue",
-  "Top 8": "border-border bg-surface text-muted",
-};
 
 const BADGE_CLASS: Record<DeckRecord["result"], string> = {
   Campeón: "bg-accent-gold text-background",
@@ -23,12 +16,11 @@ const BADGE_CLASS: Record<DeckRecord["result"], string> = {
 
 export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
   const [colors, setColors] = useState<ManaColor[]>([]);
-  const [results, setResults] = useState<DeckRecord["result"][]>([]);
-  const [tournament, setTournament] = useState<string>("todos");
+  const [date, setDate] = useState<string>("todas");
   const [query, setQuery] = useState("");
 
-  const tournaments = useMemo(
-    () => Array.from(new Set(decks.map((d) => d.tournamentName))),
+  const dates = useMemo(
+    () => Array.from(new Set(decks.map((d) => d.dateLabel))),
     [decks]
   );
 
@@ -36,25 +28,19 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
     setColors((prev) => (prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]));
   }
 
-  function toggleResult(r: DeckRecord["result"]) {
-    setResults((prev) => (prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]));
-  }
-
   const filtered = decks.filter((d) => {
     if (colors.length > 0 && !colors.every((c) => d.colorIdentity.includes(c))) return false;
-    if (results.length > 0 && !results.includes(d.result)) return false;
-    if (tournament !== "todos" && d.tournamentName !== tournament) return false;
+    if (date !== "todas" && d.dateLabel !== date) return false;
     if (query.trim() && !d.commander.toLowerCase().includes(query.trim().toLowerCase()))
       return false;
     return true;
   });
 
-  const hasActiveFilters = colors.length > 0 || results.length > 0 || tournament !== "todos" || query.trim() !== "";
+  const hasActiveFilters = colors.length > 0 || date !== "todas" || query.trim() !== "";
 
   function clearFilters() {
     setColors([]);
-    setResults([]);
-    setTournament("todos");
+    setDate("todas");
     setQuery("");
   }
 
@@ -100,39 +86,17 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
 
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold uppercase tracking-wide text-muted">
-              Resultado
-            </span>
-            <div className="flex gap-1.5">
-              {RESULTS.map((r) => (
-                <button
-                  key={r}
-                  type="button"
-                  onClick={() => toggleResult(r)}
-                  className={`rounded-full border px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide transition-colors ${
-                    results.includes(r)
-                      ? FILTER_PILL_CLASS[r]
-                      : "border-border bg-surface/60 text-muted hover:text-foreground"
-                  }`}
-                >
-                  {r}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wide text-muted">
-              Torneo
+              Fecha
             </span>
             <select
-              value={tournament}
-              onChange={(e) => setTournament(e.target.value)}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               className="rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground focus:border-accent-gold focus:outline-none"
             >
-              <option value="todos">Todos</option>
-              {tournaments.map((name) => (
-                <option key={name} value={name}>
-                  {name}
+              <option value="todas">Todas</option>
+              {dates.map((d) => (
+                <option key={d} value={d}>
+                  {d}
                 </option>
               ))}
             </select>
@@ -189,7 +153,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   <p className="mt-1.5 truncate text-xs text-muted">{d.player}</p>
                 )}
                 <p className="mt-0.5 truncate text-[11px] text-muted/70">
-                  {d.tournamentName}
+                  {d.dateLabel}
                 </p>
 
                 {d.moxfieldUrl && (

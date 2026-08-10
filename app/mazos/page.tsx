@@ -30,9 +30,9 @@ export default function MazosPage() {
               Mazos
             </h1>
             <p className="mt-3 max-w-xl text-sm text-muted sm:text-base">
-              Todos los mazos que han competido en nuestros torneos. Filtra
-              por color, comandante, torneo o resultado, y mira la lista
-              completa en Moxfield.
+              Todos los mazos que han hecho Top en nuestros torneos. Filtra
+              por color, comandante, fecha, y mira la lista completa en
+              Moxfield.
             </p>
           </div>
         </div>
