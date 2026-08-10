@@ -24,7 +24,7 @@ export default function UpcomingTournaments() {
           Próximo Torneo
         </h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mt-6 flex max-w-md flex-col gap-4">
           {upcoming.map((t) => (
             <div
               key={t.slug}
@@ -64,7 +64,7 @@ export default function UpcomingTournaments() {
                   href={`/torneos/${t.slug}`}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-4 py-2.5 text-sm font-bold text-background transition-all hover:scale-[1.02] hover:bg-accent-gold-hover"
                 >
-                  Ver reglas del torneo
+                  {t.rulesSections ? "Ver reglas del torneo" : "Ver detalles"}
                 </Link>
                 {t.announcementUrl && (
                   <a

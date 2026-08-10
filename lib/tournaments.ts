@@ -41,12 +41,21 @@ export type Tournament = {
 
 export const TOURNAMENTS: Tournament[] = [
   {
+    slug: "torneo-ultra-budget-20-panda-games",
+    name: "Torneo Ultra Budget 20€ — Panda Games",
+    cap: 20,
+    venue: "Panda Games (Alcorcón)",
+    venueUrl: "https://pandagames.es",
+    announcementUrl: "https://www.instagram.com/p/Dbu7mOsjKX3/?igsh=aWpuZXdkcTd5aHIy",
+    dateLabel: "Fecha por confirmar",
+    status: "proximo",
+  },
+  {
     slug: "3a-liga-commander-budget-100-panda-games",
     name: "3ª Liga de Commander Budget 100€ — Panda Games",
     cap: 100,
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
-    announcementUrl: "https://www.instagram.com/p/Dbu7mOsjKX3/?igsh=aWpuZXdkcTd5aHIy",
     dateLabel: "Inicio: 12 de septiembre de 2026 (tentativa)",
     dateISO: "2026-09-12",
     status: "proximo",
