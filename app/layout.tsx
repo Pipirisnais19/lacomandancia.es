@@ -26,7 +26,10 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  metadataBase: new URL("https://lacomandancia.es"),
+  metadataBase: new URL("https://www.lacomandancia.es"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title,
     description,
@@ -46,7 +49,7 @@ const organizationJsonLd = {
   "@type": "SportsOrganization",
   name: "La Comandancia",
   description,
-  url: "https://lacomandancia.es",
+  url: "https://www.lacomandancia.es",
   sport: "Magic: The Gathering Commander",
   location: {
     "@type": "Place",

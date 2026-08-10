@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://lacomandancia.es/sitemap.xml",
+    sitemap: "https://www.lacomandancia.es/sitemap.xml",
   };
 }

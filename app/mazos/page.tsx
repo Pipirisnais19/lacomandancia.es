@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Mazos | La Comandancia",
   description:
     "Todos los mazos que han competido en los torneos de La Comandancia: comandante, colores, resultado y link a la lista en Moxfield. Ideas reales de mazos de Commander bajo 100€.",
+  alternates: {
+    canonical: "/mazos",
+  },
 };
 
 export default function MazosPage() {

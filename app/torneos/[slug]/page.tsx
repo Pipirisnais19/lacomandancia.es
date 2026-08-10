@@ -56,6 +56,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `/torneos/${slug}` },
     openGraph: { title, description, type: "article" },
     twitter: { card: "summary_large_image", title, description },
   };
@@ -93,7 +94,7 @@ export default async function TournamentPage({
           : {
               "@type": "SportsOrganization",
               name: "La Comandancia",
-              url: "https://lacomandancia.es",
+              url: "https://www.lacomandancia.es",
             },
         ...(tournament.champion && {
           winner: {

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Artículos | La Comandancia",
   description:
     "Aprende Commander: reglas del formato, sistema de brackets, Game Changers y la lista de cartas prohibidas.",
+  alternates: {
+    canonical: "/articulos",
+  },
 };
 
 export default function ArticlesIndex() {

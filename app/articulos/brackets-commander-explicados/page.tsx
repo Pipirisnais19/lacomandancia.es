@@ -11,6 +11,9 @@ const article = getArticleBySlug("brackets-commander-explicados")!;
 export const metadata: Metadata = {
   title: `${article.title} | La Comandancia`,
   description: article.excerpt,
+  alternates: {
+    canonical: "/articulos/brackets-commander-explicados",
+  },
 };
 
 export default function Page() {

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { TOURNAMENTS } from "@/lib/tournaments";
 import { ARTICLES } from "@/lib/articles";
 
-const BASE_URL = "https://lacomandancia.es";
+const BASE_URL = "https://www.lacomandancia.es";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

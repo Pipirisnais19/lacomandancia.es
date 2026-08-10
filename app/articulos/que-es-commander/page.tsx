@@ -11,6 +11,9 @@ const article = getArticleBySlug("que-es-commander")!;
 export const metadata: Metadata = {
   title: `${article.title} | La Comandancia`,
   description: article.excerpt,
+  alternates: {
+    canonical: "/articulos/que-es-commander",
+  },
 };
 
 export default function Page() {

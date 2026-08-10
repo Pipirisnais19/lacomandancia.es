@@ -11,6 +11,9 @@ const article = getArticleBySlug("game-changers-y-lista-prohibidas")!;
 export const metadata: Metadata = {
   title: `${article.title} | La Comandancia`,
   description: article.excerpt,
+  alternates: {
+    canonical: "/articulos/game-changers-y-lista-prohibidas",
+  },
 };
 
 export default function Page() {

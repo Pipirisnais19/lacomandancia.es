@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Sobre Nosotros | La Comandancia",
   description:
     "Cómo nació La Comandancia, la comunidad de Commander Budget más accesible de España, y quién la hace posible: tiendas, asociaciones y colaboradores.",
+  alternates: {
+    canonical: "/sobre-nosotros",
+  },
 };
 
 const CONTACT_EMAIL = "lacomandancia.es@gmail.com";
