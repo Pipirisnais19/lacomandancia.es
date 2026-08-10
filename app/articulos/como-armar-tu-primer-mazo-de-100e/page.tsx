@@ -48,7 +48,16 @@ export default function Page() {
             >
               Scryfall
             </a>{" "}
-            y revisa todas sus versiones antes de decidir.
+            y revisa todas sus versiones antes de decidir. Si no sabes por
+            dónde empezar, echa un vistazo a nuestros{" "}
+            <Link
+              href="/mazos"
+              className="font-semibold text-accent-gold hover:underline"
+            >
+              Mazos Destacados
+            </Link>
+            : son comandantes que ya compitieron y demostraron que
+            funcionan por menos de 100€.
           </p>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">

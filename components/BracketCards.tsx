@@ -2,25 +2,29 @@ import { BRACKETS } from "@/lib/commanderRules";
 
 export default function BracketCards() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="flex flex-col gap-3">
       {BRACKETS.map((b) => (
         <div
           key={b.n}
-          className="glass glow-border-hover flex flex-col rounded-xl border border-border/60 p-5 transition-colors"
+          className="glass glow-border-hover flex flex-col gap-3 rounded-xl border border-border/60 p-5 transition-colors sm:flex-row sm:items-center sm:gap-5"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-3 sm:w-56">
             <span
-              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-current text-sm font-bold ${b.color}`}
+              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-current text-base font-bold ${b.color}`}
             >
               {b.n}
             </span>
-            <span className={`text-xs font-bold uppercase tracking-wide ${b.color}`}>
-              Bracket {b.n}
-            </span>
+            <div>
+              <p className={`text-[11px] font-bold uppercase tracking-wide ${b.color}`}>
+                Bracket {b.n}
+              </p>
+              <h4 className="text-sm font-bold text-foreground">{b.name}</h4>
+            </div>
           </div>
-          <h4 className="mt-3 text-base font-bold text-foreground">{b.name}</h4>
-          <p className="mt-1 flex-1 text-xs leading-relaxed text-muted">{b.desc}</p>
-          <div className="mt-3 flex gap-1">
+
+          <p className="flex-1 text-sm leading-relaxed text-muted">{b.desc}</p>
+
+          <div className="flex shrink-0 gap-1 sm:w-32">
             {Array.from({ length: 5 }).map((_, i) => (
               <span
                 key={i}
