@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { IconExternalLink, IconSearch, IconX } from "@tabler/icons-react";
 import { scryfallCardImageUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
@@ -138,11 +139,12 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
               className="glass glow-border-hover group flex flex-col overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50"
             >
               <div className="relative aspect-[488/680] w-full overflow-hidden bg-surface">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={scryfallCardImageUrl(d.scryfallName)}
                   alt={d.commander}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span
                   className={`absolute left-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide shadow-sm ${BADGE_CLASS[d.result]}`}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { IconExternalLink, IconTrophy } from "@tabler/icons-react";
 import { scryfallArtUrl } from "@/lib/scryfall";
 import { DECKS, MANA_COLOR_CLASS } from "@/lib/metagame";
@@ -19,12 +20,13 @@ export default function MetagameGrid() {
               Campeón
             </div>
             <div className="relative h-64 w-full overflow-hidden bg-surface sm:h-80">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={scryfallArtUrl(featured.scryfallName)}
                 alt={featured.commander}
-                fetchPriority="high"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                fill
+                priority
+                sizes="(min-width: 1024px) 66vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-card via-card/60 to-transparent" />
             </div>
@@ -74,11 +76,12 @@ export default function MetagameGrid() {
                 className="glass glow-border-hover group flex overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50"
               >
                 <div className="relative w-28 shrink-0 overflow-hidden bg-surface min-[480px]:w-24 sm:w-36">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={scryfallArtUrl(deck.scryfallName)}
                     alt={deck.commander}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="144px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/70" />
                 </div>

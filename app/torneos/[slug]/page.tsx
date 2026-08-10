@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   IconArrowLeft,
@@ -188,11 +189,13 @@ export default async function TournamentPage({
                   Campeón
                 </div>
                 <div className="relative h-56 w-full overflow-hidden bg-surface">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={scryfallArtUrl(tournament.champion.scryfallName)}
                     alt={tournament.champion.commander}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 896px, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
                 </div>
@@ -245,12 +248,13 @@ export default async function TournamentPage({
                             <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-accent-gold">
                               Top4
                             </span>
-                            <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
+                            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
+                              <Image
                                 src={scryfallArtUrl(deck.scryfallName)}
                                 alt={deck.commander}
-                                className="h-full w-full object-cover"
+                                fill
+                                sizes="48px"
+                                className="object-cover"
                               />
                             </div>
                             <div className="min-w-0 flex-1">
@@ -292,12 +296,13 @@ export default async function TournamentPage({
                             <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-muted">
                               Top8
                             </span>
-                            <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
+                            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
+                              <Image
                                 src={scryfallArtUrl(deck.scryfallName)}
                                 alt={deck.commander}
-                                className="h-full w-full object-cover"
+                                fill
+                                sizes="48px"
+                                className="object-cover"
                               />
                             </div>
                             <div className="min-w-0 flex-1">
