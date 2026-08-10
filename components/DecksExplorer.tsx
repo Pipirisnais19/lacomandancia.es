@@ -1,12 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { IconExternalLink, IconSearch, IconX } from "@tabler/icons-react";
 import { scryfallCardImageUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
 import type { DeckRecord } from "@/lib/tournaments";
 
 const COLORS: ManaColor[] = ["W", "U", "B", "R", "G"];
+
+const DATE_RANGES = [
+  { value: "todas", label: "Todas", days: null },
+  { value: "30", label: "Últimos 30 días", days: 30 },
+  { value: "90", label: "Últimos 90 días", days: 90 },
+  { value: "365", label: "Último año", days: 365 },
+] as const;
 
 const BADGE_CLASS: Record<DeckRecord["result"], string> = {
   Campeón: "bg-accent-gold text-background",
@@ -16,31 +23,36 @@ const BADGE_CLASS: Record<DeckRecord["result"], string> = {
 
 export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
   const [colors, setColors] = useState<ManaColor[]>([]);
-  const [date, setDate] = useState<string>("todas");
+  const [dateRange, setDateRange] = useState<string>("todas");
   const [query, setQuery] = useState("");
-
-  const dates = useMemo(
-    () => Array.from(new Set(decks.map((d) => d.dateLabel))),
-    [decks]
-  );
 
   function toggleColor(c: ManaColor) {
     setColors((prev) => (prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]));
   }
 
-  const filtered = decks.filter((d) => {
-    if (colors.length > 0 && !colors.every((c) => d.colorIdentity.includes(c))) return false;
-    if (date !== "todas" && d.dateLabel !== date) return false;
-    if (query.trim() && !d.commander.toLowerCase().includes(query.trim().toLowerCase()))
-      return false;
-    return true;
-  });
+  const selectedRange = DATE_RANGES.find((r) => r.value === dateRange);
 
-  const hasActiveFilters = colors.length > 0 || date !== "todas" || query.trim() !== "";
+  const filtered = decks
+    .filter((d) => {
+      if (colors.length > 0 && !colors.every((c) => d.colorIdentity.includes(c))) return false;
+      if (selectedRange?.days) {
+        if (!d.dateISO) return false;
+        const deckDate = new Date(d.dateISO);
+        const cutoff = new Date();
+        cutoff.setDate(cutoff.getDate() - selectedRange.days);
+        if (deckDate < cutoff) return false;
+      }
+      if (query.trim() && !d.commander.toLowerCase().includes(query.trim().toLowerCase()))
+        return false;
+      return true;
+    })
+    .sort((a, b) => a.commander.localeCompare(b.commander, "es"));
+
+  const hasActiveFilters = colors.length > 0 || dateRange !== "todas" || query.trim() !== "";
 
   function clearFilters() {
     setColors([]);
-    setDate("todas");
+    setDateRange("todas");
     setQuery("");
   }
 
@@ -89,14 +101,13 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
               Fecha
             </span>
             <select
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              value={dateRange}
+              onChange={(e) => setDateRange(e.target.value)}
               className="rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground focus:border-accent-gold focus:outline-none"
             >
-              <option value="todas">Todas</option>
-              {dates.map((d) => (
-                <option key={d} value={d}>
-                  {d}
+              {DATE_RANGES.map((r) => (
+                <option key={r.value} value={r.value}>
+                  {r.label}
                 </option>
               ))}
             </select>
