@@ -121,13 +121,14 @@ export default function SobreNosotrosPage() {
           </div>
 
           <h2 className="mt-12 text-xl font-bold text-foreground">
-            Cómo llevar la liga a tu tienda
+            Cómo llevar la comunidad a tu tienda
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            Panda Games es, de momento, la única sede. El objetivo es que
-            esto crezca a más tiendas — si la tuya quiere sumarse, esto es
-            lo que hace falta y lo que podemos ofrecer. Estamos empezando,
-            así que cada caso lo hablamos directamente por correo.
+            Panda Games es, de momento, la única sede. El objetivo es que la
+            comunidad crezca a más tiendas — si la tuya quiere sumarse, esto
+            es lo que hace falta y lo que podemos ofrecer. Estamos
+            empezando, así que cada caso lo hablamos directamente por
+            correo.
           </p>
 
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
