@@ -275,3 +275,50 @@ export const TOURNAMENTS: Tournament[] = [
 export function getTournamentBySlug(slug: string): Tournament | undefined {
   return TOURNAMENTS.find((t) => t.slug === slug);
 }
+
+export type DeckRecord = {
+  commander: string;
+  scryfallName: string;
+  player?: string;
+  moxfieldUrl?: string;
+  colorIdentity: ManaColor[];
+  result: "Campeón" | "Top 4" | "Top 8";
+  tournamentName: string;
+  tournamentSlug: string;
+};
+
+export function getAllDecks(): DeckRecord[] {
+  const decks: DeckRecord[] = [];
+
+  for (const t of TOURNAMENTS) {
+    if (t.champion) {
+      decks.push({
+        commander: t.champion.commander,
+        scryfallName: t.champion.scryfallName,
+        player: t.champion.player,
+        moxfieldUrl: t.champion.moxfieldUrl,
+        colorIdentity: t.champion.colorIdentity,
+        result: "Campeón",
+        tournamentName: t.name,
+        tournamentSlug: t.slug,
+      });
+    }
+
+    if (t.top8) {
+      for (const deck of t.top8) {
+        decks.push({
+          commander: deck.commander,
+          scryfallName: deck.scryfallName,
+          player: deck.player,
+          moxfieldUrl: deck.moxfieldUrl,
+          colorIdentity: deck.colorIdentity,
+          result: deck.tier === "top4" ? "Top 4" : "Top 8",
+          tournamentName: t.name,
+          tournamentSlug: t.slug,
+        });
+      }
+    }
+  }
+
+  return decks;
+}

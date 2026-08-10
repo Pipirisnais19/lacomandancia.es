@@ -16,6 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/mazos`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((article) => ({
