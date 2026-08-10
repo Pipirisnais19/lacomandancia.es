@@ -42,7 +42,7 @@ export type Tournament = {
 export const TOURNAMENTS: Tournament[] = [
   {
     slug: "torneo-ultra-budget-20-panda-games",
-    name: "Commander Ultrabudget 20€ — Fiestas de Alcorcón 2026",
+    name: "Commander Ultrabudget 20€ — Asociación Vecinal Sural",
     cap: 20,
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",

@@ -9,7 +9,7 @@ export default function MetagameGrid() {
     <section id="metajuego" className="ambient-blue overflow-hidden border-b border-border bg-background">
       <div className="relative z-[1] mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Metajuego Destacado
+          Mazos Destacados
         </h2>
 
         <div className="mt-6 flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:grid-rows-2">
