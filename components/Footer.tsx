@@ -36,6 +36,15 @@ export default function Footer() {
           La Comandancia es un proyecto comunitario independiente no
           afiliado con Wizards of the Coast.
         </p>
+
+        <div className="mt-3 flex justify-center">
+          <Link
+            href="/privacidad"
+            className="text-[11px] text-muted/70 transition-colors hover:text-accent-gold"
+          >
+            Política de Privacidad
+          </Link>
+        </div>
       </div>
     </footer>
   );
