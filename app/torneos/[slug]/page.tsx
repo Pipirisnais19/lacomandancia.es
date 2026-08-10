@@ -58,8 +58,13 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: `/torneos/${slug}` },
-    openGraph: { title, description, type: "article" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: { title, description, type: "article", images: ["/opengraph-image"] },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/opengraph-image"],
+    },
   };
 }
 
