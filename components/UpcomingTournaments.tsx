@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  IconCalendarStats,
-  IconMapPin,
-  IconCoin,
-  IconUsers,
-  IconBrandInstagram,
-} from "@tabler/icons-react";
+import { IconCalendarStats, IconMapPin, IconBrandInstagram } from "@tabler/icons-react";
 import { TOURNAMENTS } from "@/lib/tournaments";
 
 const MIN_CARDS = 2;
@@ -38,25 +32,13 @@ export default function UpcomingTournaments() {
                 {t.name}
               </h3>
 
-              <div className="mt-3 flex flex-col gap-2.5 text-sm text-muted">
-                <div className="flex items-center gap-2">
-                  <IconMapPin className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  {t.venue}
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconCalendarStats className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  {t.dateLabel}
-                </div>
-                {t.format && (
-                  <div className="flex items-center gap-2">
-                    <IconCoin className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                    {t.format.jornadas} jornadas · {t.format.price} / jornada
-                  </div>
-                )}
-                <div className="flex items-center gap-2">
-                  <IconUsers className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  Cupos: <span className="text-foreground">por confirmar</span>
-                </div>
+              <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
+                <IconMapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                {t.venue}
+              </div>
+              <div className="mt-1 flex items-center gap-1.5 text-xs text-muted">
+                <IconCalendarStats className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                {t.dateLabel}
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -64,7 +46,7 @@ export default function UpcomingTournaments() {
                   href={`/torneos/${t.slug}`}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-4 py-2.5 text-sm font-bold text-background transition-all hover:scale-[1.02] hover:bg-accent-gold-hover"
                 >
-                  {t.rulesSections ? "Ver reglas del torneo" : "Ver detalles"}
+                  Ver detalles
                 </Link>
                 {t.announcementUrl && (
                   <a
@@ -90,23 +72,13 @@ export default function UpcomingTournaments() {
                 Por anunciar
               </span>
 
-              <div className="mt-4 flex flex-col gap-2.5 text-sm text-muted">
-                <div className="flex items-center gap-2">
-                  <IconMapPin className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  Sede: <span className="text-foreground">por confirmar</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconCalendarStats className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  Fecha: <span className="text-foreground">por confirmar</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconCoin className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  Formato: <span className="text-foreground">por confirmar</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="h-4 w-4 shrink-0" strokeWidth={1.75} />
-                  Cupos: <span className="text-foreground">por confirmar</span>
-                </div>
+              <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
+                <IconMapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                Sede: <span className="text-foreground">por confirmar</span>
+              </div>
+              <div className="mt-1 flex items-center gap-1.5 text-xs text-muted">
+                <IconCalendarStats className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                Fecha: <span className="text-foreground">por confirmar</span>
               </div>
 
               <a
