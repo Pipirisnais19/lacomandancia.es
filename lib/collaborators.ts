@@ -10,9 +10,9 @@ export type Collaborator = {
 export const COLLABORATORS: Collaborator[] = [
   {
     name: "Panda Games",
-    role: "Tienda anfitriona",
+    role: "Organiza las ligas de Commander Budget",
     description:
-      "Sede de todas las ligas de Commander Budget desde el inicio del proyecto. C/ Oslo 53, CC X-Madrid, planta alta, Alcorcón.",
+      "Organiza y acoge las ligas de Commander Budget que seguimos desde La Comandancia. C/ Oslo 53, CC X-Madrid, planta alta, Alcorcón.",
     url: "https://pandagames.es",
     instagramUrl: "https://www.instagram.com/pandagames.es/",
   },

@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  IconExternalLink,
-  IconBrandInstagram,
-  IconMail,
-  IconBrandWhatsapp,
-} from "@tabler/icons-react";
+import { IconExternalLink, IconBrandInstagram, IconMail } from "@tabler/icons-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { COLLABORATORS } from "@/lib/collaborators";
@@ -15,7 +10,7 @@ export const metadata: Metadata = {
     "Cómo nació La Comandancia, la comunidad de Commander Budget más accesible de España, y quién la hace posible: tiendas, asociaciones y colaboradores.",
 };
 
-const WHATSAPP_URL = "https://chat.whatsapp.com/LXHM7cDECVUDUTxdvoCRpT";
+const CONTACT_EMAIL = "lacomandancia.es@gmail.com";
 
 export default function SobreNosotrosPage() {
   return (
@@ -43,21 +38,21 @@ export default function SobreNosotrosPage() {
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-muted">
-            <span className="text-foreground">La Comandancia</span> nació
-            dentro de Panda Games, en Alcorcón, como una liga de Commander con
-            un límite de precio — 100€ por mazo — pensada para que cualquiera
-            pudiera sentarse a jugar sin necesitar una colección cara. La 2ª
-            Liga cerró con 55 participantes en 8 jornadas, y ya vamos por la
-            3ª.
+            <span className="text-foreground">La Comandancia</span> es un
+            proyecto que recién está empezando — todavía no hemos organizado
+            nuestro primer torneo. De momento damos visibilidad a las ligas
+            de Commander Budget que ya existen, empezando por las que
+            organiza Panda Games en Alcorcón: mazos limitados a 100€,
+            pensados para que cualquiera pudiera sentarse a jugar sin
+            necesitar una colección cara. La 2ª Liga cerró con 55
+            participantes en 8 jornadas, y ya viene la 3ª.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
-            La Comandancia todavía está en proceso de formación como
-            proyecto, y parte de eso es apoyar iniciativas que compartan
-            nuestro objetivo. La Asociación Vecinal Sural organiza el torneo
-            Commander Ultrabudget 20€, en colaboración con Panda Games, como
-            parte de las Fiestas Patronales de Alcorcón — nosotros no lo
-            organizamos, pero lo promovemos porque encaja directamente con
-            la idea de acercar Commander budget a más gente.
+            La Asociación Vecinal Sural organiza, junto a Panda Games, el
+            torneo Commander Ultrabudget 20€ como parte de las Fiestas
+            Patronales de Alcorcón. Tampoco es un torneo de La Comandancia,
+            pero lo promovemos porque encaja directamente con lo que
+            queremos construir: más jugadores, más mesas, mazos accesibles.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
             La idea sigue siendo simple:{" "}
@@ -125,19 +120,70 @@ export default function SobreNosotrosPage() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-dashed border-border p-6 text-center">
+          <h2 className="mt-12 text-xl font-bold text-foreground">
+            Cómo llevar la liga a tu tienda
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            Panda Games es, de momento, la única sede. El objetivo es que
+            esto crezca a más tiendas — si la tuya quiere sumarse, esto es
+            lo que hace falta y lo que podemos ofrecer. Estamos empezando,
+            así que cada caso lo hablamos directamente por correo.
+          </p>
+
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="glass rounded-xl border border-border/60 p-5">
+              <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
+                Qué necesita tu tienda
+              </h3>
+              <ul className="mt-3 flex flex-col gap-2">
+                {[
+                  "Espacio para jugar en mesas de 3-4 personas, con la periodicidad que decidáis (semanal, quincenal...).",
+                  "Disposición para adoptar el formato de liga: mazos con un tope de precio, puntuación por jornada y una final.",
+                  "Alguien en la tienda que lleve el día a día de la liga — no sustituimos a un organizador local.",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="glass rounded-xl border border-border/60 p-5">
+              <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
+                Qué ofrece La Comandancia
+              </h3>
+              <ul className="mt-3 flex flex-col gap-2">
+                {[
+                  "El formato de liga ya probado en Panda Games: reglas, puntuación y validación de precios en Moxfield.",
+                  "Un espacio en la web para tu tienda: resultados, mazos del top y visibilidad en la comunidad.",
+                  "Difusión del torneo a través del proyecto (web y comunidad) cuando la liga esté lista.",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-dashed border-border p-6 text-center">
             <p className="text-sm text-muted">
-              ¿Tu tienda o asociación quiere sumarse a la próxima liga o
-              torneo?
+              ¿Tu tienda o asociación quiere sumarse a la comunidad?
             </p>
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent-gold px-5 py-2.5 text-sm font-bold text-background transition-all hover:scale-[1.02] hover:bg-accent-gold-hover"
             >
-              <IconBrandWhatsapp className="h-4 w-4" strokeWidth={1.75} />
-              Escríbenos por WhatsApp
+              <IconMail className="h-4 w-4" strokeWidth={1.75} />
+              {CONTACT_EMAIL}
             </a>
           </div>
         </article>
