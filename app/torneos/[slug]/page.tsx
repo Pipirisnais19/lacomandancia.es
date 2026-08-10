@@ -8,6 +8,8 @@ import {
   IconExternalLink,
   IconClockHour4,
   IconUsers,
+  IconCalendarStats,
+  IconCoin,
 } from "@tabler/icons-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -170,6 +172,8 @@ export default async function TournamentPage({
         </div>
 
         <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+          {(tournament.champion || tournament.status === "en-curso") && (
+            <>
           {/* Campeón */}
           <section>
             <h2 className="text-xl font-bold text-foreground">Mazo Campeón</h2>
@@ -324,6 +328,84 @@ export default async function TournamentPage({
               </div>
             )}
           </section>
+            </>
+          )}
+
+          {/* Formato de la liga (torneos no finalizados) */}
+          {tournament.status !== "finalizado" && tournament.format && (
+            <section className={tournament.champion || tournament.status === "en-curso" ? "mt-10" : ""}>
+              <h2 className="text-xl font-bold text-foreground">
+                Formato de la Liga
+              </h2>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="glass rounded-xl border border-border/60 p-4">
+                  <IconCalendarStats className="h-5 w-5 text-accent-gold" strokeWidth={1.5} />
+                  <p className="mt-2 text-lg font-bold text-foreground">
+                    {tournament.format.jornadas} jornadas
+                  </p>
+                  <p className="text-xs text-muted">
+                    Cuentan los {tournament.format.bestOf} mejores resultados
+                  </p>
+                </div>
+                <div className="glass rounded-xl border border-border/60 p-4">
+                  <IconClockHour4 className="h-5 w-5 text-accent-blue" strokeWidth={1.5} />
+                  <p className="mt-2 text-sm font-bold text-foreground">Calendario</p>
+                  <p className="text-xs text-muted">{tournament.format.schedule}</p>
+                </div>
+                <div className="glass rounded-xl border border-border/60 p-4">
+                  <IconCoin className="h-5 w-5 text-accent-green" strokeWidth={1.5} />
+                  <p className="mt-2 text-lg font-bold text-foreground">
+                    {tournament.format.price} / jornada
+                  </p>
+                  <p className="text-xs text-muted">{tournament.format.priceBreakdown}</p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Reglas (torneos no finalizados) */}
+          {tournament.status !== "finalizado" && tournament.rulesSections && (
+            <section className="mt-10">
+              <h2 className="text-xl font-bold text-foreground">Reglas</h2>
+              <div className="mt-4 flex flex-col gap-6">
+                {tournament.rulesSections.map((section) => (
+                  <div
+                    key={section.title}
+                    className="glass rounded-xl border border-border/60 p-5"
+                  >
+                    <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
+                      {section.title}
+                    </h3>
+                    <ul className="mt-3 flex flex-col gap-2">
+                      {section.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+                        >
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-gold" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {tournament.announcementUrl && (
+            <section className="mt-10">
+              <a
+                href={tournament.announcementUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
+              >
+                Ver anuncio oficial
+                <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+              </a>
+            </section>
+          )}
         </div>
       </main>
       <Footer />
