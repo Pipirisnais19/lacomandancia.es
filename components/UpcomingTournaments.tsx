@@ -12,7 +12,7 @@ export default function UpcomingTournaments() {
   const placeholders = Math.max(0, MIN_CARDS - upcoming.length);
 
   return (
-    <section className="ambient-gold overflow-hidden border-b border-border bg-background">
+    <section id="agenda" className="ambient-gold overflow-hidden border-b border-border bg-background">
       <div className="relative z-[1] mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <p className="text-xs font-bold uppercase tracking-widest text-accent-gold">
           Agenda

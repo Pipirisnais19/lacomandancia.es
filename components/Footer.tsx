@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Logo from "./Logo";
 
-const LINKS = [{ label: "Sobre Nosotros", href: "/sobre-nosotros" }];
+const LINKS = [
+  { label: "Artículos", href: "/articulos" },
+  { label: "Sobre Nosotros", href: "/sobre-nosotros" },
+];
 
 export default function Footer() {
   return (

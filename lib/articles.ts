@@ -36,6 +36,24 @@ export const ARTICLES: Article[] = [
     views: 980,
     tag: "Reglas",
   },
+  {
+    slug: "como-armar-tu-primer-mazo-de-100e",
+    title: "Cómo armar tu primer mazo de Commander de 100€",
+    excerpt:
+      "Guía práctica para construir tu primer mazo budget: cómo elegir comandante, dónde mirar precios reales y qué evitar para no pasarte del límite.",
+    readTime: "6 min",
+    views: 0,
+    tag: "Guías",
+  },
+  {
+    slug: "recap-2da-liga-panda-games",
+    title: "Recap: así fue la 2ª Liga de Commander Budget en Panda Games",
+    excerpt:
+      "55 participantes, 8 jornadas y una final ganada por Alela, Artful Provocateur. Repasamos el Top 4 y lo que deja la segunda liga.",
+    readTime: "4 min",
+    views: 0,
+    tag: "Resultados",
+  },
 ];
 
 export function getMostViewed(count?: number): Article[] {
