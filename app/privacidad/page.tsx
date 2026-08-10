@@ -41,7 +41,7 @@ export default function PrivacidadPage() {
             página explica de forma simple qué datos recoge{" "}
             <span className="text-foreground">lacomandancia.es</span>, para
             qué los usamos, y qué pasa cuando nos contactas fuera del sitio
-            (correo, WhatsApp).
+            (correo, Instagram).
           </p>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">
@@ -65,7 +65,7 @@ export default function PrivacidadPage() {
             para ver, de forma agregada y anónima, cuánta gente visita el
             sitio y qué páginas funcionan mejor. No usa cookies ni identifica
             a personas individuales. También registramos, de forma anónima,
-            cuándo alguien hace clic en el botón de WhatsApp o en "Ver
+            cuándo alguien hace clic en "Síguenos" en Instagram o en "Ver
             detalles" de un torneo — nos sirve para saber qué le interesa a
             la comunidad, no para identificarte.
           </p>
@@ -79,7 +79,7 @@ export default function PrivacidadPage() {
           </p>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">
-            Si nos escribes o te unes al grupo
+            Si nos escribes o nos sigues en Instagram
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted">
             Si nos escribes a{" "}
@@ -89,10 +89,10 @@ export default function PrivacidadPage() {
             >
               lacomandancia.es@gmail.com
             </a>{" "}
-            o te unes a nuestro grupo de WhatsApp, esa conversación queda en
-            Gmail o WhatsApp, según sus propias políticas de privacidad — no
-            la guardamos aparte ni la usamos para nada distinto de responder
-            tu mensaje o gestionar la comunidad.
+            o nos sigues en Instagram, esa relación queda en Gmail o
+            Instagram, según sus propias políticas de privacidad — no la
+            guardamos aparte ni la usamos para nada distinto de responder tu
+            mensaje o gestionar la comunidad.
           </p>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">
@@ -110,7 +110,7 @@ export default function PrivacidadPage() {
           <p className="mt-4 text-base leading-relaxed text-muted">
             Como no guardamos datos personales en el sitio, no hay nada que
             pedirnos borrar de aquí. Si tienes dudas sobre algo que nos
-            escribiste por correo o WhatsApp, contáctanos a{" "}
+            escribiste por correo o Instagram, contáctanos a{" "}
             <a
               href="mailto:lacomandancia.es@gmail.com"
               className="font-semibold text-accent-gold hover:underline"

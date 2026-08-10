@@ -1,29 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
-import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { IconBrandInstagram } from "@tabler/icons-react";
 import Logo from "./Logo";
 
-const WHATSAPP_URL = "https://chat.whatsapp.com/LXHM7cDECVUDUTxdvoCRpT";
-
-// Temporal: el grupo todavía no está listo para recibir gente.
-// Cuando esté listo, poner en true para volver a abrir el link directo.
-const WHATSAPP_LIVE = false;
+const INSTAGRAM_URL = "https://www.instagram.com/lacomandancia.es";
 
 export default function Header() {
-  const [showToast, setShowToast] = useState(false);
-
-  function handleClick(e: React.MouseEvent) {
-    track("whatsapp_click");
-    if (!WHATSAPP_LIVE) {
-      e.preventDefault();
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-    }
-  }
-
   return (
     <header className="glass sticky top-0 z-50 border-b border-border/60">
       <div className="wubrg-gradient h-[3px] w-full" />
@@ -35,25 +19,17 @@ export default function Header() {
           </span>
         </Link>
 
-        <div className="relative">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClick}
-            aria-label="Únete por WhatsApp"
-            className="flex items-center gap-2 rounded-lg bg-accent-gold px-4 py-2 text-sm font-bold text-background shadow-lg shadow-accent-gold/20 transition-all hover:scale-[1.03] hover:bg-accent-gold-hover hover:shadow-accent-gold/40 active:scale-[0.98]"
-          >
-            <IconBrandWhatsapp className="h-5 w-5" strokeWidth={1.75} />
-            <span className="hidden sm:inline">Únete</span>
-          </a>
-
-          {showToast && (
-            <div className="glass absolute right-0 top-full z-10 mt-2 w-56 rounded-lg border border-accent-gold/40 px-3 py-2.5 text-xs text-foreground shadow-lg">
-              Disponible pronto.
-            </div>
-          )}
-        </div>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => track("instagram_click")}
+          aria-label="Síguenos en Instagram"
+          className="flex items-center gap-2 rounded-lg bg-accent-gold px-4 py-2 text-sm font-bold text-background shadow-lg shadow-accent-gold/20 transition-all hover:scale-[1.03] hover:bg-accent-gold-hover hover:shadow-accent-gold/40 active:scale-[0.98]"
+        >
+          <IconBrandInstagram className="h-5 w-5" strokeWidth={1.75} />
+          <span className="hidden sm:inline">Síguenos</span>
+        </a>
       </div>
     </header>
   );
