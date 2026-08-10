@@ -38,14 +38,24 @@ export default function SobreNosotrosPage() {
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-muted">
-            <span className="text-foreground">La Comandancia</span> es un
-            proyecto que recién está empezando — todavía no hemos organizado
-            nuestro primer torneo. De momento damos visibilidad a los
-            torneos y ligas de Commander Budget que ya existen, empezando
-            por las que organiza Panda Games en Alcorcón: mazos limitados a
-            100€, pensados para que cualquiera pudiera sentarse a jugar sin
-            necesitar una colección cara. La 2ª Liga cerró con 55
-            participantes en 8 jornadas, y ya viene la 3ª.
+            Soy fan de Magic desde hace años, y desde que descubrí Commander
+            no he vuelto a ver igual otros formatos. Hace poco me topé con
+            el Commander Budget y me pareció una idea espectacular: mazos
+            limitados a un presupuesto real, sin necesitar una colección
+            carísima para sentarte a jugar en serio. Lo difícil fue
+            encontrar dónde jugarlo, hasta que di con Panda Games, en
+            Alcorcón, donde juego activamente desde entonces.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted">
+            <span className="text-foreground">La Comandancia</span> nace de
+            esa misma búsqueda. Es un proyecto que recién está empezando —
+            todavía no hemos organizado nuestro primer torneo propio. De
+            momento queremos dar visibilidad a los torneos y ligas de
+            Commander Budget que ya existen, empezando por las que organiza
+            Panda Games en Alcorcón: mazos limitados a 100€, pensados para
+            que cualquiera pudiera sentarse a jugar sin necesitar una
+            colección cara. La 2ª Liga cerró con 55 participantes en 8
+            jornadas, y ya viene la 3ª.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
             La idea sigue siendo simple:{" "}
