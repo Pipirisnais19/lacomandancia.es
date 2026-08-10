@@ -127,22 +127,23 @@ export default function SobreNosotrosPage() {
             Cómo llevar la comunidad a tu tienda
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            El objetivo es que la comunidad crezca a más tiendas — si la
-            tuya quiere sumarse, esto es lo que hace falta y lo que podemos
-            ofrecer. Estamos empezando, así que cada caso lo hablamos
-            directamente por correo.
+            Lo que nos importa es que más gente juegue Commander Budget, en
+            más sitios. Si tu tienda o grupo quiere organizar un torneo o
+            una liga, cuenta con nosotros para darle difusión. Estamos
+            empezando, así que no hay un molde fijo: hablamos cada caso por
+            correo.
           </p>
 
           <div className="mt-4 flex flex-col gap-4">
             <div className="glass rounded-xl border border-border/60 p-5">
               <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
-                Qué necesita tu tienda
+                Lo que ayuda
               </h3>
               <ul className="mt-3 flex flex-col gap-2">
                 {[
-                  "Espacio para jugar en mesas de 3-4 personas, con la periodicidad que decidáis (semanal, quincenal...).",
-                  "Disposición para adoptar el formato de torneo o liga: mazos con un tope de precio, puntuación por jornada y una final.",
-                  "Alguien en la tienda que lleve el día a día del torneo o la liga — no sustituimos a un organizador local.",
+                  "Un espacio para jugar en mesas de 3-4 personas.",
+                  "Algún tope de precio por mazo, para que cualquiera pueda sentarse a jugar sin necesitar una colección cara (no hace falta que sean exactamente 100€, pueden ser 50 o hasta menos).",
+                  "Alguien de la tienda o la comunidad que lleve el día a día del evento.",
                 ].map((item) => (
                   <li
                     key={item}
@@ -157,12 +158,12 @@ export default function SobreNosotrosPage() {
 
             <div className="glass rounded-xl border border-border/60 p-5">
               <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
-                Qué ofrece La Comandancia
+                Lo que ponemos nosotros
               </h3>
               <ul className="mt-3 flex flex-col gap-2">
                 {[
-                  "Un espacio en la web para tu tienda: resultados, mazos del top y visibilidad en la comunidad.",
-                  "Difusión a través del proyecto (web y comunidad) cuando el torneo o la liga esté listo.",
+                  "Espacio en la web: resultados, mazos del top, visibilidad dentro de la comunidad.",
+                  "Difusión del evento a través de nuestras redes sociales.",
                 ].map((item) => (
                   <li
                     key={item}
