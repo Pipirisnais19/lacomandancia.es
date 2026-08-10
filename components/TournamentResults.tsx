@@ -20,6 +20,8 @@ const STATUS_CLASS: Record<string, string> = {
 };
 
 export default function TournamentResults() {
+  const pastTournaments = TOURNAMENTS.filter((t) => t.status !== "proximo");
+
   return (
     <section id="resultados" className="ambient-red overflow-hidden border-b border-border bg-surface">
       <div className="relative z-[1] mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -31,7 +33,7 @@ export default function TournamentResults() {
         </h2>
 
         <div className="mt-6 flex max-w-md flex-col gap-4">
-          {TOURNAMENTS.map((t) => (
+          {pastTournaments.map((t) => (
             <Link
               key={t.slug}
               href={`/torneos/${t.slug}`}
