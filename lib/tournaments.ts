@@ -42,13 +42,44 @@ export type Tournament = {
 export const TOURNAMENTS: Tournament[] = [
   {
     slug: "torneo-ultra-budget-20-panda-games",
-    name: "Torneo Ultra Budget 20€ — Panda Games",
+    name: "Commander Ultrabudget 20€ — Fiestas de Alcorcón 2026",
     cap: 20,
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
     announcementUrl: "https://www.instagram.com/p/Dbu7mOsjKX3/?igsh=aWpuZXdkcTd5aHIy",
-    dateLabel: "Fecha por confirmar",
+    dateLabel: "Domingo 6 de septiembre de 2026",
+    dateISO: "2026-09-06",
     status: "proximo",
+    rulesSections: [
+      {
+        title: "Detalles del evento",
+        items: [
+          "Organiza la Asociación Vecinal Sural, en colaboración con Panda Games, como parte de las Fiestas Patronales de Alcorcón 2026.",
+          "Inscripción: 3 €, el mismo día del torneo en tienda.",
+          "3 rondas de 60 minutos, sin turnos extra.",
+          "Multijugador en mesas de 3-4 personas.",
+          "Puntuación por posición: 4-2-1-0.",
+          "Premio en crédito de tienda para los primeros clasificados.",
+        ],
+      },
+      {
+        title: "Normas de construcción del mazo",
+        items: [
+          "20 € máximo por mazo (sin contar tierras básicas ni el comandante).",
+          "Ninguna carta puede superar los 3 €.",
+          "Precios de referencia en Moxfield.com.",
+          "Se aplica la lista de prohibidas oficial de Commander multijugador, más un baneo propio del evento: Sergeant John Benton.",
+          "Prohibidos los combos infinitos antes del turno 6.",
+        ],
+      },
+      {
+        title: "Inscripción",
+        items: [
+          "Imprescindible enviar la lista del mazo antes del día 5 de septiembre a avvsural@gmail.com.",
+          "Dudas o consultas: por correo, redes sociales, o pasando por Panda Games (C.C. X-Madrid, planta alta).",
+        ],
+      },
+    ],
   },
   {
     slug: "3a-liga-commander-budget-100-panda-games",

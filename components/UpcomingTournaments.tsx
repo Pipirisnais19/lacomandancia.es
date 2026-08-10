@@ -21,14 +21,14 @@ export default function UpcomingTournaments() {
           Agenda
         </p>
         <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
-          Próximo Torneo
+          Próximos Torneos
         </h2>
 
-        <div className="mt-6 flex max-w-md flex-col gap-4">
+        <div className="mt-6 flex flex-wrap gap-4">
           {upcoming.map((t) => (
             <div
               key={t.slug}
-              className="glass flex flex-col rounded-2xl border border-accent-gold/30 p-6"
+              className="glass flex w-full max-w-md flex-col rounded-2xl border border-accent-gold/30 p-6"
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-gold">
                 Próximamente
@@ -84,7 +84,7 @@ export default function UpcomingTournaments() {
           {Array.from({ length: placeholders }).map((_, i) => (
             <div
               key={`pending-${i}`}
-              className="glass flex flex-col rounded-2xl border border-dashed border-border p-6"
+              className="glass flex w-full max-w-md flex-col rounded-2xl border border-dashed border-border p-6"
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-muted">
                 Por anunciar
