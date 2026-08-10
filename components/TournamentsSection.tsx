@@ -22,7 +22,7 @@ export default function TournamentsSection() {
               alt="Panda Games"
               width={650}
               height={231}
-              className="mt-2 h-10 w-auto invert"
+              className="mt-2 h-10 w-auto"
             />
 
             <p className="mt-4 text-sm text-muted">
