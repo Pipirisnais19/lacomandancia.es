@@ -12,8 +12,8 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroBento />
-        <MetagameGrid />
         <UpcomingTournaments />
+        <MetagameGrid />
         <TournamentResults />
         <TournamentsSection />
       </main>
