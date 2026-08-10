@@ -21,6 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/sobre-nosotros`,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ];
 
   const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((article) => ({

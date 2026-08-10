@@ -14,7 +14,16 @@ export default function Footer() {
           </Link>
         </div>
 
-        <p className="mt-5 text-center text-[11px] text-muted">
+        <div className="mt-5 flex justify-center">
+          <Link
+            href="/sobre-nosotros"
+            className="text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
+          >
+            Sobre Nosotros
+          </Link>
+        </div>
+
+        <p className="mt-3 text-center text-[11px] text-muted">
           Datos y colaboradores: Panda Games · Cardmarket API · Moxfield
         </p>
 
