@@ -58,41 +58,24 @@ export default function Logo({ className = "h-9 w-9" }: { className?: string }) 
         fill="#e3c34f"
       />
 
-      {/* Cartas */}
-      <path
-        d="M27.2 48.5 L40.5 41.5 L48.2 65.2 L34.7 71.8 Z"
-        fill="#0a0a12"
-        stroke="#e3c34f"
-        strokeWidth="1.45"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M72.8 48.5 L59.5 41.5 L51.8 65.2 L65.3 71.8 Z"
-        fill="#0a0a12"
-        stroke="#e3c34f"
-        strokeWidth="1.45"
-        strokeLinejoin="round"
-      />
-
       {/* Escudo */}
       <path
-        d="M37 37.2 Q50 32.8 63 37.2 L63 58.2 Q62.2 68.5 50 77 Q37.8 68.5 37 58.2 Z"
+        d="M35 39 Q50 33.5 65 39 L65 60 Q64 71 50 79 Q36 71 35 60 Z"
         fill="#0a0a12"
         stroke="#e3c34f"
-        strokeWidth="1.65"
-        strokeLinejoin="round"
+        strokeWidth="2"
       />
 
       {/* Corona */}
       <path
-        d="M41 50 L43.4 42.4 L50 48.1 L56.6 42.4 L59 50 L57.3 57.2 Q50 59.3 42.7 57.2 Z"
+        d="M40 51 L43 42 L50 49 L57 42 L60 51 L58.3 59 Q50 61.5 41.7 59 Z"
         fill="url(#lc-gold)"
         stroke="#e3c34f"
-        strokeWidth="0.55"
+        strokeWidth="0.6"
         strokeLinejoin="round"
       />
       <path
-        d="M43.2 57.7 Q50 59.4 56.8 57.7 L56.2 60 Q50 61.5 43.8 60 Z"
+        d="M42 59.5 Q50 61.8 58 59.5 L57.3 62.5 Q50 64.3 42.7 62.5 Z"
         fill="#e3c34f"
       />
     </svg>
