@@ -126,7 +126,7 @@ export default async function TournamentPage({
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_20%_0%,rgba(255,87,87,0.18),transparent)]"
           />
-          <div className="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-4xl px-4 py-7 sm:px-6 lg:px-8">
             <Link
               href="/#resultados"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
@@ -181,7 +181,7 @@ export default async function TournamentPage({
           </div>
         </div>
 
-        <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 py-7 sm:px-6 lg:px-8">
           {(tournament.champion || tournament.status === "en-curso") && (
             <>
           {/* Campeón */}

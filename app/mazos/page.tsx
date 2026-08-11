@@ -25,7 +25,7 @@ export default function MazosPage() {
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_-10%,rgba(79,143,252,0.2),transparent)]"
           />
-          <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
             <p className="text-xs font-bold uppercase tracking-widest text-accent-gold">
               Metajuego
             </p>
@@ -40,7 +40,7 @@ export default function MazosPage() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
           <DecksExplorer decks={decks} />
         </div>
       </main>

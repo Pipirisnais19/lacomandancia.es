@@ -15,7 +15,7 @@ export default function HeroBento() {
         <div className="orb orb-drift left-1/3 top-40 h-56 w-56 bg-accent-green/15" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-10 lg:px-8">
+      <div className="relative mx-auto max-w-4xl px-4 py-6 text-center sm:px-6 sm:py-8 lg:px-8">
         <h1 className="text-glow-gold text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           El hogar del{" "}
           <span className="text-gradient-shift">Commander Budget</span> en

@@ -23,7 +23,7 @@ export default function Page() {
       <main className="flex-1">
         <ArticleHeader article={article} />
 
-        <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-muted">
             <span className="text-foreground">Commander</span> (también
             conocido como EDH, Elder Dragon Highlander) es el formato

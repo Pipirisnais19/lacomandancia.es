@@ -9,7 +9,7 @@ export default function RelatedArticles({ excludeSlug }: { excludeSlug: string }
 
   return (
     <div className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 py-7 sm:px-6 lg:px-8">
         <h2 className="text-lg font-bold text-foreground">
           Sigue leyendo
         </h2>

@@ -9,7 +9,7 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4 border-b border-border pb-6 sm:flex-row sm:justify-between">
           <Link href="/" className="flex items-center gap-2.5">
             <Logo className="h-[41px] w-[41px]" />

@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_-10%,rgba(227,195,79,0.22),transparent)]"
           />
-          <div className="relative mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-3xl px-4 py-7 sm:px-6 lg:px-8">
             <p className="text-xs font-bold uppercase tracking-widest text-accent-gold">
               Legal
             </p>
@@ -35,7 +35,7 @@ export default function PrivacidadPage() {
           </div>
         </div>
 
-        <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-muted">
             La Comandancia es un proyecto comunitario, no una empresa. Esta
             página explica de forma simple qué datos recoge{" "}

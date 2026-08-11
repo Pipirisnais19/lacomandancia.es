@@ -26,7 +26,7 @@ export default function ArticlesIndex() {
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_20%_0%,rgba(179,79,245,0.18),transparent)]"
           />
-          <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent-gold/30 bg-accent-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-gold">
               Artículos
             </div>
@@ -40,7 +40,7 @@ export default function ArticlesIndex() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
           {featured && (
             <Link
               href={`/articulos/${featured.slug}`}

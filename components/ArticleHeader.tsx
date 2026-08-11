@@ -9,7 +9,7 @@ export default function ArticleHeader({ article }: { article: Article }) {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_20%_0%,rgba(179,79,245,0.18),transparent)]"
       />
-      <div className="relative mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-3xl px-4 py-7 sm:px-6 lg:px-8">
         <Link
           href="/articulos"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"

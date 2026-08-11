@@ -10,7 +10,7 @@ const TRUST_POINTS = [
 export default function ValidatorSection() {
   return (
     <section id="validador" className="ambient-gold overflow-hidden border-b border-border bg-background">
-      <div className="relative z-[1] mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative z-[1] mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-accent-gold">
