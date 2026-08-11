@@ -2,6 +2,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const LINKS = [
+  { label: "Torneos", href: "/torneos" },
   { label: "Artículos", href: "/articulos" },
   { label: "Sobre Nosotros", href: "/sobre-nosotros" },
 ];

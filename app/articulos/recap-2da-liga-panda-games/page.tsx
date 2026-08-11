@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 import Footer from "@/components/Footer";
 import ArticleHeader from "@/components/ArticleHeader";
 import RelatedArticles from "@/components/RelatedArticles";
@@ -25,7 +26,8 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <ArticleJsonLd article={article} />
+      <main id="contenido" className="flex-1">
         <ArticleHeader article={article} />
 
         <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">

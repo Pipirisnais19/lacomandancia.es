@@ -19,7 +19,7 @@ export default function MazosPage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <div className="bg-grain relative overflow-hidden border-b border-border bg-grid">
           <div
             aria-hidden

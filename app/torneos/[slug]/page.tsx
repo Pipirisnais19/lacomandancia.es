@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import { TOURNAMENTS, getTournamentBySlug } from "@/lib/tournaments";
 import { scryfallArtUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
+import MoxfieldLink from "@/components/MoxfieldLink";
 
 function ColorPips({ colors }: { colors: ManaColor[] }) {
   return (
@@ -84,6 +85,7 @@ export default async function TournamentPage({
         name: tournament.name,
         startDate: tournament.dateISO,
         eventStatus: "https://schema.org/EventScheduled",
+        image: "https://www.lacomandancia.es/opengraph-image",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: {
           "@type": "Place",
@@ -120,7 +122,7 @@ export default async function TournamentPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
       )}
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <div className="bg-grain relative overflow-hidden border-b border-border bg-grid">
           <div
             aria-hidden
@@ -128,7 +130,7 @@ export default async function TournamentPage({
           />
           <div className="relative mx-auto max-w-4xl px-4 py-7 sm:px-6 lg:px-8">
             <Link
-              href="/#resultados"
+              href="/torneos"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               <IconArrowLeft className="h-4 w-4" strokeWidth={1.75} />
@@ -215,15 +217,14 @@ export default async function TournamentPage({
                     </p>
                   )}
                   {tournament.champion.moxfieldUrl && (
-                    <a
+                    <MoxfieldLink
                       href={tournament.champion.moxfieldUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      commander={tournament.champion.commander}
                       className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
                     >
                       Ver Mazo en Moxfield
                       <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                    </a>
+                    </MoxfieldLink>
                   )}
                 </div>
               </div>
@@ -272,15 +273,14 @@ export default async function TournamentPage({
                               )}
                             </div>
                             {deck.moxfieldUrl && (
-                              <a
+                              <MoxfieldLink
                                 href={deck.moxfieldUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                commander={deck.commander}
                                 className="shrink-0 text-muted transition-colors hover:text-accent-gold"
-                                aria-label={`Ver ${deck.commander} en Moxfield`}
                               >
+                                <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
                                 <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                              </a>
+                              </MoxfieldLink>
                             )}
                           </div>
                         ))}
@@ -320,15 +320,14 @@ export default async function TournamentPage({
                               )}
                             </div>
                             {deck.moxfieldUrl && (
-                              <a
+                              <MoxfieldLink
                                 href={deck.moxfieldUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                commander={deck.commander}
                                 className="shrink-0 text-muted transition-colors hover:text-accent-gold"
-                                aria-label={`Ver ${deck.commander} en Moxfield`}
                               >
+                                <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
                                 <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                              </a>
+                              </MoxfieldLink>
                             )}
                           </div>
                         ))}

@@ -12,6 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${BASE_URL}/torneos`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/articulos`,
       changeFrequency: "weekly",
       priority: 0.7,
@@ -35,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((article) => ({
     url: `${BASE_URL}/articulos/${article.slug}`,
+    lastModified: article.updatedAt,
     changeFrequency: "monthly",
     priority: 0.6,
   }));

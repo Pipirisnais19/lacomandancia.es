@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IconArrowLeft, IconClock, IconEye } from "@tabler/icons-react";
-import { formatViews, type Article } from "@/lib/articles";
+import { IconArrowLeft, IconClock, IconCalendar } from "@tabler/icons-react";
+import { formatArticleDate, type Article } from "@/lib/articles";
 
 export default function ArticleHeader({ article }: { article: Article }) {
   return (
@@ -31,8 +31,8 @@ export default function ArticleHeader({ article }: { article: Article }) {
             {article.readTime} de lectura
           </span>
           <span className="flex items-center gap-1.5">
-            <IconEye className="h-4 w-4" strokeWidth={1.75} />
-            {formatViews(article.views)}
+            <IconCalendar className="h-4 w-4" strokeWidth={1.75} />
+            Publicado el {formatArticleDate(article.publishedAt)}
           </span>
         </div>
       </div>

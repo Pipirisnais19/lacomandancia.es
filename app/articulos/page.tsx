@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { IconArrowRight, IconClock, IconEye, IconFlame } from "@tabler/icons-react";
-import { getMostViewed, formatViews } from "@/lib/articles";
+import { IconArrowRight, IconClock, IconFlame } from "@tabler/icons-react";
+import { getRecentArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
   title: "Artículos | La Comandancia",
@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 };
 
 export default function ArticlesIndex() {
-  const [featured, ...rest] = getMostViewed();
+  const [featured, ...rest] = getRecentArticles();
 
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main id="contenido" className="flex-1">
         <div className="bg-grain relative overflow-hidden border-b border-border bg-grid">
           <div
             aria-hidden
@@ -53,7 +53,7 @@ export default function ArticlesIndex() {
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <span className="rounded-full bg-accent-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-background">
-                    Más leído
+                    Más reciente
                   </span>
                   <p className="text-[11px] font-bold uppercase tracking-widest text-accent-gold">
                     {featured.tag}
@@ -69,10 +69,6 @@ export default function ArticlesIndex() {
                   <span className="flex items-center gap-1">
                     <IconClock className="h-3.5 w-3.5" strokeWidth={1.75} />
                     {featured.readTime}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <IconEye className="h-3.5 w-3.5" strokeWidth={1.75} />
-                    {formatViews(featured.views)}
                   </span>
                   <span className="flex items-center gap-1 font-semibold text-accent-gold opacity-0 transition-opacity group-hover:opacity-100">
                     Leer
@@ -100,15 +96,9 @@ export default function ArticlesIndex() {
                   {a.excerpt}
                 </p>
                 <div className="mt-4 flex items-center justify-between text-xs text-muted">
-                  <span className="flex items-center gap-3">
-                    <span className="flex items-center gap-1">
-                      <IconClock className="h-3.5 w-3.5" strokeWidth={1.75} />
-                      {a.readTime}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconEye className="h-3.5 w-3.5" strokeWidth={1.75} />
-                      {formatViews(a.views)}
-                    </span>
+                  <span className="flex items-center gap-1">
+                    <IconClock className="h-3.5 w-3.5" strokeWidth={1.75} />
+                    {a.readTime}
                   </span>
                   <span className="flex items-center gap-1 font-semibold text-accent-gold opacity-0 transition-opacity group-hover:opacity-100">
                     Leer

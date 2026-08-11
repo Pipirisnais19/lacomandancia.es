@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IconExternalLink, IconTrophy } from "@tabler/icons-react";
 import { scryfallArtUrl } from "@/lib/scryfall";
 import { DECKS, MANA_COLOR_CLASS } from "@/lib/metagame";
+import MoxfieldLink from "./MoxfieldLink";
 
 export default function MetagameGrid() {
   const [featured, ...rest] = DECKS;
@@ -57,15 +58,14 @@ export default function MetagameGrid() {
                 </div>
               </div>
 
-              <a
+              <MoxfieldLink
                 href={featured.moxfieldUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                commander={featured.commander}
                 className="mt-5 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
               >
                 Ver Mazo en Moxfield
                 <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-              </a>
+              </MoxfieldLink>
             </div>
           </article>
 
@@ -104,15 +104,14 @@ export default function MetagameGrid() {
                     </span>
                   </div>
 
-                  <a
+                  <MoxfieldLink
                     href={deck.moxfieldUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    commander={deck.commander}
                     className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
                   >
                     Ver en Moxfield
                     <IconExternalLink className="h-3 w-3" strokeWidth={2} />
-                  </a>
+                  </MoxfieldLink>
                 </div>
               </article>
             ))}

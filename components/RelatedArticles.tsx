@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IconArrowRight, IconEye } from "@tabler/icons-react";
-import { ARTICLES, formatViews } from "@/lib/articles";
+import { IconArrowRight, IconClock } from "@tabler/icons-react";
+import { ARTICLES } from "@/lib/articles";
 
 export default function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
   const others = ARTICLES.filter((a) => a.slug !== excludeSlug);
@@ -28,8 +28,8 @@ export default function RelatedArticles({ excludeSlug }: { excludeSlug: string }
               </h3>
               <div className="mt-3 flex items-center justify-between text-xs text-muted">
                 <span className="flex items-center gap-1">
-                  <IconEye className="h-3.5 w-3.5" strokeWidth={1.75} />
-                  {formatViews(a.views)}
+                  <IconClock className="h-3.5 w-3.5" strokeWidth={1.75} />
+                  {a.readTime}
                 </span>
                 <span className="flex items-center gap-1 font-semibold text-accent-gold opacity-0 transition-opacity group-hover:opacity-100">
                   Leer

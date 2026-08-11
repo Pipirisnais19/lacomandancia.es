@@ -3,11 +3,11 @@ export type Article = {
   title: string;
   excerpt: string;
   readTime: string;
-  views: number;
+  publishedAt: string;
+  updatedAt: string;
   tag: string;
 };
 
-// Vistas: valores de referencia hasta conectar analítica real (Vercel Analytics / Plausible).
 export const ARTICLES: Article[] = [
   {
     slug: "que-es-commander",
@@ -15,7 +15,8 @@ export const ARTICLES: Article[] = [
     excerpt:
       "100 cartas, un comandante y hasta 4 rivales en la mesa. Te explicamos las reglas básicas: singleton, identidad de color, impuesto de comandante y daño de combate.",
     readTime: "4 min",
-    views: 2340,
+    publishedAt: "2026-08-09",
+    updatedAt: "2026-08-11",
     tag: "Reglas",
   },
   {
@@ -24,7 +25,8 @@ export const ARTICLES: Article[] = [
     excerpt:
       "De Exhibición a cEDH: así clasifica Wizards of the Coast el nivel de poder de un mazo de Commander, y por qué te importa antes de sentarte a jugar.",
     readTime: "5 min",
-    views: 1560,
+    publishedAt: "2026-08-09",
+    updatedAt: "2026-08-11",
     tag: "Brackets",
   },
   {
@@ -33,7 +35,8 @@ export const ARTICLES: Article[] = [
     excerpt:
       "No todo lo poderoso está prohibido. Descubre qué son las Game Changers, cómo limitan cada bracket y dónde consultar la lista oficial de cartas baneadas.",
     readTime: "3 min",
-    views: 980,
+    publishedAt: "2026-08-09",
+    updatedAt: "2026-08-11",
     tag: "Reglas",
   },
   {
@@ -42,7 +45,8 @@ export const ARTICLES: Article[] = [
     excerpt:
       "Guía práctica para construir tu primer mazo budget: cómo elegir comandante, dónde mirar precios reales y qué evitar para no pasarte del límite.",
     readTime: "6 min",
-    views: 0,
+    publishedAt: "2026-08-10",
+    updatedAt: "2026-08-11",
     tag: "Guías",
   },
   {
@@ -51,13 +55,14 @@ export const ARTICLES: Article[] = [
     excerpt:
       "55 participantes, 8 jornadas y una final ganada por Alela, Artful Provocateur. Repasamos el Top 4 y lo que deja la segunda liga.",
     readTime: "4 min",
-    views: 0,
+    publishedAt: "2026-08-10",
+    updatedAt: "2026-08-11",
     tag: "Resultados",
   },
 ];
 
-export function getMostViewed(count?: number): Article[] {
-  const sorted = [...ARTICLES].sort((a, b) => b.views - a.views);
+export function getRecentArticles(count?: number): Article[] {
+  const sorted = [...ARTICLES].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
   return typeof count === "number" ? sorted.slice(0, count) : sorted;
 }
 
@@ -65,9 +70,11 @@ export function getArticleBySlug(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug);
 }
 
-export function formatViews(views: number): string {
-  if (views >= 1000) {
-    return `${(views / 1000).toFixed(views % 1000 === 0 ? 0 : 1)}k vistas`;
-  }
-  return `${views} vistas`;
+export function formatArticleDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }

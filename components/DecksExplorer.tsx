@@ -6,6 +6,7 @@ import { IconExternalLink, IconSearch, IconX } from "@tabler/icons-react";
 import { scryfallCardImageUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
 import type { DeckRecord } from "@/lib/tournaments";
+import MoxfieldLink from "./MoxfieldLink";
 
 const COLORS: ManaColor[] = ["W", "U", "B", "R", "G"];
 
@@ -170,15 +171,14 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                 </p>
 
                 {d.moxfieldUrl && (
-                  <a
+                  <MoxfieldLink
                     href={d.moxfieldUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    commander={d.commander}
                     className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent-gold transition-colors hover:underline"
                   >
                     Ver en Moxfield
                     <IconExternalLink className="h-3 w-3" strokeWidth={2} />
-                  </a>
+                  </MoxfieldLink>
                 )}
               </div>
             </div>
