@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./Logo";
+import Image from "next/image";
 
 const LINKS = [
   { label: "Torneos", href: "/torneos" },
@@ -13,7 +13,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4 border-b border-border pb-6 sm:flex-row sm:justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <Logo className="h-[41px] w-[41px]" />
+            <Image
+              src="/logo-mark.png"
+              alt="La Comandancia"
+              width={41}
+              height={41}
+              className="h-[41px] w-[41px]"
+            />
             <span className="font-display text-lg font-bold tracking-wide text-foreground">
               LA COMANDANCIA
             </span>
