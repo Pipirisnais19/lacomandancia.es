@@ -17,12 +17,12 @@ export default function HeroBento() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.1]"
       >
         <svg
           viewBox="0 0 100 100"
           fill="none"
-          className="h-[420px] w-[420px] sm:h-[560px] sm:w-[560px] lg:h-[680px] lg:w-[680px]"
+          className="absolute right-0 top-1/2 h-[240px] w-[240px] -translate-y-1/2 translate-x-1/4 sm:right-4 sm:h-[320px] sm:w-[320px] sm:translate-x-0 lg:right-10 lg:h-[400px] lg:w-[400px]"
         >
           <defs>
             <linearGradient id="hero-lc-gold" x1="0" y1="0" x2="0.85" y2="1">
