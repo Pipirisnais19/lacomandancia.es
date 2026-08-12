@@ -12,9 +12,11 @@ export default function GameChangersBanList() {
         </div>
         <p className="mt-2 text-sm text-muted">
           Las <span className="text-foreground">Game Changers</span> son una
-          lista de 53 cartas muy poderosas mantenida por Wizards of the
+          lista curada de cartas muy poderosas mantenida por Wizards of the
           Coast. No están prohibidas, pero sí limitadas por bracket: vetadas
           en 1 y 2, hasta 3 copias distintas en el 3, y sin límite en 4 y 5.
+          La lista se revisa periódicamente, así que consulta siempre la
+          oficial.
         </p>
         <a
           href="https://magic.wizards.com/es/formats/commander"

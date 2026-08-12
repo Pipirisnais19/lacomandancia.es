@@ -38,7 +38,7 @@ export default function Page() {
             Game Changers: poderosas, no prohibidas
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted">
-            Son 53 cartas legales en Commander, pero lo bastante fuertes
+            Son cartas legales en Commander, pero lo bastante fuertes
             como para desequilibrar una mesa casual. En vez de prohibirlas,
             Wizards decidió limitarlas por{" "}
             <a

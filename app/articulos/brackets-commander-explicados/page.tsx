@@ -56,7 +56,7 @@ export default function Page() {
           <p className="mt-4 text-base leading-relaxed text-muted">
             Cada bracket tiene un límite distinto de{" "}
             <span className="text-foreground">Game Changers</span>: una
-            lista curada de 53 cartas especialmente poderosas. No están
+            lista curada de cartas especialmente poderosas. No están
             prohibidas, pero sí restringidas por bracket — te contamos todo
             en el siguiente artículo, junto con la lista oficial de cartas
             prohibidas en Commander.
