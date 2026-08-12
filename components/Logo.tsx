@@ -65,19 +65,6 @@ export default function Logo({ className = "h-9 w-9" }: { className?: string }) 
         stroke="#e3c34f"
         strokeWidth="2"
       />
-
-      {/* Corona */}
-      <path
-        d="M40 51 L43 42 L50 49 L57 42 L60 51 L58.3 59 Q50 61.5 41.7 59 Z"
-        fill="url(#lc-gold)"
-        stroke="#e3c34f"
-        strokeWidth="0.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M42 59.5 Q50 61.8 58 59.5 L57.3 62.5 Q50 64.3 42.7 62.5 Z"
-        fill="#e3c34f"
-      />
     </svg>
   );
 }

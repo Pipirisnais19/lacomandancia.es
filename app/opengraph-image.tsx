@@ -26,9 +26,6 @@ function Logo() {
       <path d="M27 48 L27 73 L33 73 L33 43 Z M73 48 L73 73 L67 73 L67 43 Z" fill="#e3c34f" />
 
       <path d="M35 39 Q50 33.5 65 39 L65 60 Q64 71 50 79 Q36 71 35 60 Z" fill="#0a0a12" stroke="#e3c34f" strokeWidth="2" />
-
-      <path d="M40 51 L43 42 L50 49 L57 42 L60 51 L58.3 59 Q50 61.5 41.7 59 Z" fill="url(#lc-gold)" stroke="#e3c34f" strokeWidth="0.6" strokeLinejoin="round" />
-      <path d="M42 59.5 Q50 61.8 58 59.5 L57.3 62.5 Q50 64.3 42.7 62.5 Z" fill="#e3c34f" />
     </svg>
   );
 }
