@@ -30,7 +30,7 @@ export default function PrivacidadPage() {
               Política de Privacidad
             </h1>
             <p className="mt-3 max-w-xl text-sm text-muted sm:text-base">
-              Última actualización: 10 de agosto de 2026.
+              Última actualización: 12 de agosto de 2026.
             </p>
           </div>
         </div>
@@ -65,9 +65,10 @@ export default function PrivacidadPage() {
             para ver, de forma agregada y anónima, cuánta gente visita el
             sitio y qué páginas funcionan mejor. No usa cookies ni identifica
             a personas individuales. También registramos, de forma anónima,
-            cuándo alguien hace clic en "Síguenos" en Instagram o en "Ver
-            detalles" de un torneo — nos sirve para saber qué le interesa a
-            la comunidad, no para identificarte.
+            cuándo alguien hace clic en "Síguenos" en Instagram, en "Ver
+            detalles" de un torneo, o en "Ver en Moxfield" de un mazo — nos
+            sirve para saber qué le interesa a la comunidad, no para
+            identificarte.
           </p>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">

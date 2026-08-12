@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const LINKS = [
   { label: "Torneos", href: "/torneos" },
+  { label: "Mazos", href: "/mazos" },
   { label: "Artículos", href: "/articulos" },
   { label: "Sobre Nosotros", href: "/sobre-nosotros" },
 ];
