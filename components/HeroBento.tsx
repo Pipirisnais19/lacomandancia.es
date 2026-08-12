@@ -43,7 +43,7 @@ export default function HeroBento() {
             className="flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98]"
           >
             <IconChartBar className="h-4 w-4" strokeWidth={2} />
-            Explorar Metajuego
+            Explorar Mazos
           </Link>
         </div>
       </div>
