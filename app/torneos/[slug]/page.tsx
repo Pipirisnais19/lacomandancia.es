@@ -385,32 +385,38 @@ export default async function TournamentPage({
           )}
 
           {/* Reglas (torneos no finalizados) */}
-          {tournament.status !== "finalizado" && tournament.rulesSections && (
+          {tournament.status !== "finalizado" && (
             <section className="mt-10">
               <h2 className="text-xl font-bold text-foreground">Reglas</h2>
-              <div className="mt-4 flex flex-col gap-6">
-                {tournament.rulesSections.map((section) => (
-                  <div
-                    key={section.title}
-                    className="glass rounded-xl border border-border/60 p-5"
-                  >
-                    <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
-                      {section.title}
-                    </h3>
-                    <ul className="mt-3 flex flex-col gap-2">
-                      {section.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-sm leading-relaxed text-muted"
-                        >
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-gold" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              {tournament.rulesSections ? (
+                <div className="mt-4 flex flex-col gap-6">
+                  {tournament.rulesSections.map((section) => (
+                    <div
+                      key={section.title}
+                      className="glass rounded-xl border border-border/60 p-5"
+                    >
+                      <h3 className="text-sm font-bold uppercase tracking-wide text-accent-gold">
+                        {section.title}
+                      </h3>
+                      <ul className="mt-3 flex flex-col gap-2">
+                        {section.items.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+                          >
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-gold" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="glass mt-4 rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted">
+                  Próximamente.
+                </div>
+              )}
             </section>
           )}
 
