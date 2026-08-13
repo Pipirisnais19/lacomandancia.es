@@ -47,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const tournamentRoutes: MetadataRoute.Sitemap = TOURNAMENTS.map((t) => ({
     url: `${BASE_URL}/torneos/${t.slug}`,
+    ...(t.dateISO && { lastModified: t.dateISO }),
     changeFrequency: "monthly",
     priority: 0.8,
   }));

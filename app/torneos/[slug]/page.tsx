@@ -18,6 +18,7 @@ import { TOURNAMENTS, getTournamentBySlug } from "@/lib/tournaments";
 import { scryfallArtUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
 import MoxfieldLink from "@/components/MoxfieldLink";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 function ColorPips({ colors }: { colors: ManaColor[] }) {
   return (
@@ -116,6 +117,13 @@ export default async function TournamentPage({
   return (
     <>
       <Header />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Torneos", path: "/torneos" },
+          { name: tournament.name, path: `/torneos/${slug}` },
+        ]}
+      />
       {eventJsonLd && (
         <script
           type="application/ld+json"

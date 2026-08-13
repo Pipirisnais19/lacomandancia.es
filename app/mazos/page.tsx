@@ -5,9 +5,9 @@ import DecksExplorer from "@/components/DecksExplorer";
 import { getAllDecks } from "@/lib/tournaments";
 
 export const metadata: Metadata = {
-  title: "Mazos | La Comandancia",
+  title: "Mazos de Commander Budget | La Comandancia",
   description:
-    "Todos los mazos que han competido en los torneos de La Comandancia: comandante, colores, resultado y link a la lista en Moxfield. Ideas reales de mazos de Commander bajo 100€.",
+    "Todos los mazos que han competido en nuestros torneos: comandante, colores, resultado y link a Moxfield. Ideas reales de mazos de Commander bajo 100€.",
   alternates: {
     canonical: "/mazos",
   },

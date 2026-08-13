@@ -6,9 +6,9 @@ import { IconArrowRight, IconClock, IconFlame } from "@tabler/icons-react";
 import { getRecentArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
-  title: "Artículos | La Comandancia",
+  title: "Aprende Commander: Guías y Reglas | La Comandancia",
   description:
-    "Aprende Commander: reglas del formato, sistema de brackets, Game Changers y la lista de cartas prohibidas.",
+    "Aprende Commander: reglas del formato, sistema de brackets, Game Changers y la lista de prohibidas. Guías pensadas para jugar Commander Budget sin errores.",
   alternates: {
     canonical: "/articulos",
   },

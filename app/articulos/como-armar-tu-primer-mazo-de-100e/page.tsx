@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Footer from "@/components/Footer";
 import ArticleHeader from "@/components/ArticleHeader";
 import RelatedArticles from "@/components/RelatedArticles";
@@ -22,6 +23,13 @@ export default function Page() {
     <>
       <Header />
       <ArticleJsonLd article={article} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Artículos", path: "/articulos" },
+          { name: article.title, path: `/articulos/${article.slug}` },
+        ]}
+      />
       <main id="contenido" className="flex-1">
         <ArticleHeader article={article} />
 

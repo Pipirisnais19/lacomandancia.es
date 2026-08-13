@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 import { TOURNAMENTS } from "@/lib/tournaments";
 
 export const metadata: Metadata = {
-  title: "Torneos | La Comandancia",
+  title: "Torneos de Commander Budget en Madrid | La Comandancia",
   description:
     "Todos los torneos de Commander Budget en Panda Games (Alcorcón): próximos eventos, ligas en curso y resultados finalizados.",
   alternates: {
