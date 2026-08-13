@@ -21,7 +21,7 @@ const cinzel = Cinzel({
 
 const title = "La Comandancia — El Hogar del Commander Budget en España";
 const description =
-  "Torneos, mazos, metajuego y comunidad de Commander Budget en España. Liga de 100€ (Cardmarket EUR). 100% carta real, sin proxies.";
+  "Torneos, mazos, metajuego y comunidad de Commander Budget en España. Liga de 100€. 100% carta real, sin proxies.";
 
 export const metadata: Metadata = {
   title,
