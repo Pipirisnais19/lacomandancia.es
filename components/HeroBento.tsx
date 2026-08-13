@@ -33,8 +33,7 @@ export default function HeroBento() {
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
           La comunidad de Commander más accesible de España.
-          <br />
-          Mazos limitados a{" "}
+          <br className="hidden sm:block" /> Mazos limitados a{" "}
           <span className="font-semibold text-accent-gold">100€</span> (Sin
           Proxies).
         </p>
