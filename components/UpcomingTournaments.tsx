@@ -25,7 +25,7 @@ export default function UpcomingTournaments() {
           {upcoming.map((t) => (
             <div
               key={t.slug}
-              className="glass flex w-full max-w-md flex-col rounded-2xl border border-accent-gold/30 p-6"
+              className="glass flex w-full max-w-md flex-col rounded-2xl border border-accent-gold/30 p-5"
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-gold">
                 Próximamente
@@ -44,7 +44,7 @@ export default function UpcomingTournaments() {
                 {t.dateLabel}
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 <Link
                   href={`/torneos/${t.slug}`}
                   onClick={() => track("ver_detalles_click", { torneo: t.slug })}
@@ -70,7 +70,7 @@ export default function UpcomingTournaments() {
           {Array.from({ length: placeholders }).map((_, i) => (
             <div
               key={`pending-${i}`}
-              className="glass flex w-full max-w-md flex-col rounded-2xl border border-dashed border-border p-6"
+              className="glass flex w-full max-w-md flex-col rounded-2xl border border-dashed border-border p-5"
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-muted">
                 Por anunciar
@@ -89,7 +89,7 @@ export default function UpcomingTournaments() {
                 href="https://www.instagram.com/pandagames.es/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent-gold hover:text-accent-gold"
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent-gold hover:text-accent-gold"
               >
                 <IconBrandInstagram className="h-4 w-4" strokeWidth={1.75} />
                 Preguntar en Panda Games
