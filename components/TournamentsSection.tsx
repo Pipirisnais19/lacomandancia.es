@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { IconBrandInstagram, IconExternalLink } from "@tabler/icons-react";
 
+const OTHER_STORES = [
+  { name: "Micelion Games", city: "Madrid", url: "https://miceliongames.com" },
+  { name: "Magic Barcelona", city: "Barcelona", url: "https://www.magicbarcelona.net" },
+];
+
 export default function TournamentsSection() {
   return (
     <section id="torneos" className="ambient-green overflow-hidden border-b border-border bg-surface">
@@ -51,6 +56,30 @@ export default function TournamentsSection() {
                 @pandagames.es
               </a>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-4 max-w-md">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-muted">
+            Otras tiendas
+          </p>
+          <div className="mt-2 flex flex-col gap-2">
+            {OTHER_STORES.map((store) => (
+              <a
+                key={store.name}
+                href={store.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between rounded-lg border border-border/60 bg-surface/40 px-3 py-2.5 text-xs text-muted transition-colors hover:border-accent-green/40 hover:text-foreground"
+              >
+                <span>
+                  <span className="font-semibold text-foreground">{store.name}</span>
+                  {" · "}
+                  {store.city}
+                </span>
+                <IconExternalLink className="h-3.5 w-3.5 shrink-0" strokeWidth={2} />
+              </a>
+            ))}
           </div>
         </div>
       </div>
