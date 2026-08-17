@@ -37,7 +37,7 @@ export default function Page() {
           <p className="text-base leading-relaxed text-muted">
             No todos los mazos de Commander se juegan igual. Un mazo temático
             de goblins y un mazo afinado para torneos competitivos son ambos
-            "Commander legal", pero sentarlos en la misma mesa suele acabar
+            &ldquo;Commander legal&rdquo;, pero sentarlos en la misma mesa suele acabar
             en una paliza para uno de los dos bandos. Para resolver ese
             desajuste, Wizards of the Coast introdujo el{" "}
             <span className="text-foreground">sistema de Brackets</span>: una
@@ -59,7 +59,7 @@ export default function Page() {
           </div>
 
           <h2 className="mt-10 text-xl font-bold text-foreground">
-            ¿Qué son las cartas "Game Changer"?
+            ¿Qué son las cartas &ldquo;Game Changer&rdquo;?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted">
             Cada bracket tiene un límite distinto de{" "}

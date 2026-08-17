@@ -35,7 +35,7 @@ export default function Page() {
 
         <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-muted">
-            Cuando hablamos de "cartas problemáticas" en Commander, en
+            Cuando hablamos de &ldquo;cartas problemáticas&rdquo; en Commander, en
             realidad estamos hablando de dos listas distintas mantenidas por
             Wizards of the Coast, y es fácil confundirlas: las{" "}
             <span className="text-foreground">Game Changers</span> y la{" "}

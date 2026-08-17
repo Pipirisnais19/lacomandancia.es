@@ -65,8 +65,8 @@ export default function PrivacidadPage() {
             para ver, de forma agregada y anónima, cuánta gente visita el
             sitio y qué páginas funcionan mejor. No usa cookies ni identifica
             a personas individuales. También registramos, de forma anónima,
-            cuándo alguien hace clic en "Síguenos" en Instagram, en "Ver
-            detalles" de un torneo, o en "Ver en Moxfield" de un mazo — nos
+            cuándo alguien hace clic en &ldquo;Síguenos&rdquo; en Instagram, en &ldquo;Ver
+            detalles&rdquo; de un torneo, o en &ldquo;Ver en Moxfield&rdquo; de un mazo — nos
             sirve para saber qué le interesa a la comunidad, no para
             identificarte.
           </p>

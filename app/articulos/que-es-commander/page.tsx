@@ -63,7 +63,7 @@ export default function Page() {
             Commander premia la creatividad más que la eficiencia pura:
             puedes construir un mazo alrededor de cualquier tema, desde
             goblins hasta dragones, sin necesidad de perseguir la
-            estrategia "óptima". Al jugarse en mesas de varios jugadores,
+            estrategia &ldquo;óptima&rdquo;. Al jugarse en mesas de varios jugadores,
             las partidas suelen girar en torno a la política de mesa,
             las alianzas temporales y los grandes momentos de mesa —no solo
             en quién gana más rápido.
