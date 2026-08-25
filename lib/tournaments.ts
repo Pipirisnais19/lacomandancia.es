@@ -134,7 +134,7 @@ export const TOURNAMENTS: Tournament[] = [
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
     organizerName: "Panda Games",
-    dateLabel: "Sábado 5 o 12 de septiembre de 2026 (fecha tentativa)",
+    dateLabel: "Sábado 5 o 12 de septiembre de 2026 (fecha final pendiente)",
     status: "proximo",
     format: {
       jornadas: 8,

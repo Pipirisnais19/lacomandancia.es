@@ -32,12 +32,12 @@ export default function TournamentResults() {
           Torneos Recientes
         </h2>
 
-        <div className="mt-6 flex max-w-md flex-col gap-4">
+        <div className="mt-6 flex flex-wrap gap-4">
           {pastTournaments.map((t) => (
             <Link
               key={t.slug}
               href={`/torneos/${t.slug}`}
-              className={`glass glow-border-hover group flex flex-col rounded-2xl p-6 hover:border-accent-gold/40 ${
+              className={`glass glow-border-hover group flex w-full max-w-md flex-col rounded-2xl p-6 hover:border-accent-gold/40 ${
                 t.status === "en-curso" ? "gradient-border" : "border border-border/60"
               }`}
             >
