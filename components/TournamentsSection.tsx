@@ -3,7 +3,6 @@ import { IconBrandInstagram, IconExternalLink } from "@tabler/icons-react";
 
 const OTHER_STORES = [
   { name: "Micelion Games", city: "Madrid", url: "https://miceliongames.com" },
-  { name: "Magic Barcelona", city: "Barcelona", url: "https://www.magicbarcelona.net" },
 ];
 
 export default function TournamentsSection() {
