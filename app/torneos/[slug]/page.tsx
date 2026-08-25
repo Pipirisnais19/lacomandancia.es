@@ -192,7 +192,9 @@ export default async function TournamentPage({
         </div>
 
         <div className="mx-auto max-w-4xl px-4 py-7 sm:px-6 lg:px-8">
-          {(tournament.champion || tournament.status === "en-curso") && (
+          {(tournament.champion ||
+            tournament.status === "en-curso" ||
+            tournament.status === "finalizado") && (
             <>
           {/* Campeón */}
           <section>
@@ -384,8 +386,8 @@ export default async function TournamentPage({
             </section>
           )}
 
-          {/* Reglas (torneos no finalizados) */}
-          {tournament.status !== "finalizado" && (
+          {/* Reglas: siempre que existan, o placeholder mientras el torneo no haya terminado */}
+          {(tournament.rulesSections || tournament.status !== "finalizado") && (
             <section className="mt-10">
               <h2 className="text-xl font-bold text-foreground">Reglas</h2>
               {tournament.rulesSections ? (

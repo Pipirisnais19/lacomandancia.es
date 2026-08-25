@@ -18,11 +18,6 @@ describe("TOURNAMENTS data integrity", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("every finalizado tournament has a champion", () => {
-    for (const t of TOURNAMENTS.filter((t) => t.status === "finalizado")) {
-      expect(t.champion, `${t.slug} should have a champion`).toBeDefined();
-    }
-  });
 });
 
 describe("getAllDecks", () => {
@@ -47,7 +42,9 @@ describe("getAllDecks", () => {
 
   it("does not include decks from tournaments with no results yet", () => {
     const decks = getAllDecks();
-    const upcoming = TOURNAMENTS.filter((t) => t.status === "proximo").map((t) => t.slug);
-    expect(decks.some((d) => upcoming.includes(d.tournamentSlug))).toBe(false);
+    // Covers both "proximo" tournaments and "finalizado" ones whose results
+    // haven't been uploaded yet (champion still undefined).
+    const withoutChampion = TOURNAMENTS.filter((t) => !t.champion).map((t) => t.slug);
+    expect(decks.some((d) => withoutChampion.includes(d.tournamentSlug))).toBe(false);
   });
 });

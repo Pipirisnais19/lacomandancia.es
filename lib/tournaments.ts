@@ -51,7 +51,8 @@ export const TOURNAMENTS: Tournament[] = [
     organizerName: "Micelion Games",
     dateLabel: "Domingo 23 de agosto de 2026, 17:00h",
     dateISO: "2026-08-23",
-    status: "proximo",
+    participants: 20,
+    status: "finalizado",
     rulesSections: [
       {
         title: "Detalles del evento",
