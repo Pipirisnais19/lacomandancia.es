@@ -147,11 +147,13 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span
-                  className={`absolute left-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide shadow-sm ${BADGE_CLASS[d.result]}`}
-                >
-                  {d.result}
-                </span>
+                {d.result === "Campeón" && (
+                  <span
+                    className={`absolute left-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide shadow-sm ${BADGE_CLASS[d.result]}`}
+                  >
+                    {d.result}
+                  </span>
+                )}
               </div>
 
               <div className="flex flex-1 flex-col p-3">

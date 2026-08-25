@@ -95,7 +95,6 @@ export default function MetagameGrid() {
                   </h3>
 
                   <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
-                    <span className="font-bold text-accent-gold">{deck.result}</span>
                     <span className="text-muted">{deck.player}</span>
                     <span className="flex gap-1">
                       {deck.colorIdentity.map((c) => (
