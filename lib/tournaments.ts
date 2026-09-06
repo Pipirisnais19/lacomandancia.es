@@ -46,51 +46,6 @@ export type Tournament = {
 
 export const TOURNAMENTS: Tournament[] = [
   {
-    slug: "commander-budget-100-micelion-games-agosto",
-    name: "Commander Budget 100€ Mensual — Micelion Games",
-    cap: 100,
-    venue: "Micelion Games (Madrid)",
-    venueUrl: "https://miceliongames.com",
-    announcementUrl: "https://www.instagram.com/p/Db04WuKjabw/",
-    organizerName: "Micelion Games",
-    dateLabel: "Domingo 23 de agosto de 2026, 17:00h",
-    dateISO: "2026-08-23",
-    participants: 20,
-    status: "finalizado",
-    resultsUnavailable: true,
-    rulesSections: [
-      {
-        title: "Detalles del evento",
-        items: [
-          "Organiza Micelion Games, en Av. Mediterráneo 8, Retiro, Madrid.",
-          "Inscripción: 15 €, abierta hasta 15 minutos antes del torneo.",
-          "3 rondas de 75 minutos cada una.",
-          "Multijugador en mesas de 4 (mesas de 3 si es necesario según asistencia).",
-          "Puntuación: victoria 3 puntos, empate 1 punto, derrota 0 puntos.",
-          "Turno máximo de 4 minutos por jugador.",
-          "Premios en cheque tienda según asistencia (desde 12 jugadores): 1º 300 €, 2º-4º 100 € para 48+ jugadores. Sorteos entre no premiados.",
-        ],
-      },
-      {
-        title: "Normas de construcción del mazo",
-        items: [
-          "100 € máximo por mazo, tierras y comandante incluidos.",
-          "Precio de referencia: el más bajo disponible en Cardmarket, vía la app ManaBox en euros.",
-          "No se puede cambiar de mazo ni de cartas entre rondas.",
-          "Se aplica la lista de prohibidas oficial de Commander de Wizards of the Coast, más dos baneos propios del evento: Thassa's Oracle y Underworld Breach.",
-          "No se permiten proxies, fotocopias ni cartas falsas.",
-        ],
-      },
-      {
-        title: "Inscripción",
-        items: [
-          "Inscripción online vía TopDeck.gg (enlace en el anuncio del evento).",
-          "Dudas o consultas: por mensaje directo a @micelion_games o pasando por la tienda.",
-        ],
-      },
-    ],
-  },
-  {
     slug: "torneo-ultra-budget-20-panda-games",
     name: "Commander Ultrabudget 20€ — Asociación Vecinal Sural",
     cap: 20,
@@ -100,7 +55,7 @@ export const TOURNAMENTS: Tournament[] = [
     organizerName: "Asociación Vecinal Sural",
     dateLabel: "Domingo 6 de septiembre de 2026, 16:00h",
     dateISO: "2026-09-06",
-    status: "proximo",
+    status: "finalizado",
     rulesSections: [
       {
         title: "Detalles del evento",
