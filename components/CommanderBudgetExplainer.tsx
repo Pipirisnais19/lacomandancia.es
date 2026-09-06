@@ -28,7 +28,7 @@ export default function CommanderBudgetExplainer() {
         <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
           ¿Qué significa Commander Budget?
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-muted sm:text-base">
+        <p className="mt-3 max-w-2xl text-base text-muted sm:text-lg">
           Que el presupuesto no decida quién puede sentarse a jugar.
         </p>
 
