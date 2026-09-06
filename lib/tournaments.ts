@@ -55,6 +55,7 @@ export const TOURNAMENTS: Tournament[] = [
     organizerName: "Asociación Vecinal Sural",
     dateLabel: "Domingo 6 de septiembre de 2026, 16:00h",
     dateISO: "2026-09-06",
+    participants: 21,
     status: "finalizado",
     rulesSections: [
       {
