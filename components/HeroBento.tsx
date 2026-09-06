@@ -30,8 +30,8 @@ export default function HeroBento() {
           Commander sin necesitar{" "}
           <span className="text-gradient-shift">una fortuna</span>.
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
-          El hogar del Commander Budget.
+        <p className="mx-auto mt-4 max-w-xl text-base text-muted sm:text-lg">
+          El hogar del Commander Budget en España.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
