@@ -29,10 +29,7 @@ export default function CommanderBudgetExplainer() {
           ¿Qué significa Commander Budget?
         </h2>
         <p className="mt-3 max-w-2xl text-sm text-muted sm:text-base">
-          Que el presupuesto no decida quién puede sentarse a jugar. Mazos
-          limitados a un tope real, 100% cartas auténticas, sin proxies — así
-          cualquiera compite con las mismas reglas, sin necesitar una
-          colección cara.
+          Que el presupuesto no decida quién puede sentarse a jugar.
         </p>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
