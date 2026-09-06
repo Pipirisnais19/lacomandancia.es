@@ -14,8 +14,8 @@ export default function MetagameGrid() {
           Mazos Destacados
         </h2>
 
-        <div className="mt-6 flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:grid-rows-2">
-          <article className="gradient-border glass glow-border-hover group relative overflow-hidden rounded-2xl hover:border-accent-gold/50 lg:col-span-2 lg:row-span-2">
+        <div className="mt-6 flex flex-col gap-4 lg:grid lg:grid-cols-3">
+          <article className="gradient-border glass glow-border-hover group relative overflow-hidden rounded-2xl hover:border-accent-gold/50 lg:col-span-2">
             <div className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-accent-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-background">
               <IconTrophy className="h-3.5 w-3.5" strokeWidth={2.25} />
               Campeón
@@ -69,11 +69,11 @@ export default function MetagameGrid() {
             </div>
           </article>
 
-          <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:contents">
+          <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:col-start-3 lg:flex lg:flex-col">
             {rest.map((deck) => (
               <article
                 key={deck.commander}
-                className="glass glow-border-hover group flex overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50"
+                className="glass glow-border-hover group flex overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50 lg:flex-1"
               >
                 <div className="relative w-28 shrink-0 overflow-hidden bg-surface min-[480px]:w-24 sm:w-36">
                   <Image

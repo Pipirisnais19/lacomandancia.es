@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a12;
-  --surface: #14141f;
-  --card: #1b1b29;
-  --border: #2d2d40;
+  --background: #0d0b0a;
+  --surface: #18140f;
+  --card: #221c15;
+  --border: #3d3222;
   --foreground: #f5f4fa;
   --muted: #a5a3b5;
 
@@ -161,35 +161,35 @@ h4 {
   position: relative;
 }
 .ambient-gold::before {
-  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(227, 195, 79, 0.16), transparent);
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(227, 195, 79, 0.24), transparent);
 }
 
 .ambient-blue {
   position: relative;
 }
 .ambient-blue::before {
-  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(79, 143, 252, 0.16), transparent);
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(79, 143, 252, 0.22), transparent);
 }
 
 .ambient-purple {
   position: relative;
 }
 .ambient-purple::before {
-  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(179, 79, 245, 0.15), transparent);
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(179, 79, 245, 0.22), transparent);
 }
 
 .ambient-red {
   position: relative;
 }
 .ambient-red::before {
-  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(255, 87, 87, 0.14), transparent);
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(255, 87, 87, 0.2), transparent);
 }
 
 .ambient-green {
   position: relative;
 }
 .ambient-green::before {
-  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(46, 213, 115, 0.14), transparent);
+  background: radial-gradient(ellipse 55% 55% at 50% -5%, rgba(46, 213, 115, 0.2), transparent);
 }
 
 /* Gradient border — WUBRG ring around featured cards, via mask-composite subtraction */
