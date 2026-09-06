@@ -40,14 +40,14 @@ export default function HeroBento() {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/torneos"
-            className="flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98]"
+            className="flex w-64 items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98] sm:w-auto sm:min-w-56"
           >
             <IconMapPin className="h-4 w-4" strokeWidth={2} />
             Encuentra un Torneo
           </Link>
           <Link
             href="/mazos"
-            className="flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
+            className="flex w-64 items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold sm:w-auto sm:min-w-56"
           >
             <IconChartBar className="h-4 w-4" strokeWidth={2} />
             Explorar Mazos
