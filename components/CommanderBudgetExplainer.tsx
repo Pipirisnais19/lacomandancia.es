@@ -4,6 +4,7 @@ const POINTS = [
   {
     icon: IconCoin,
     title: "Accesible",
+    mobileTitle: "Accesible · menos de 100€",
     desc: "Mazos competitivos por menos de 100€.",
   },
   {
@@ -44,7 +45,10 @@ export default function CommanderBudgetExplainer() {
               />
               <div>
                 <p className="text-xs font-bold leading-tight text-foreground sm:text-sm">
-                  {point.title}
+                  <span className="sm:hidden">
+                    {point.mobileTitle ?? point.title}
+                  </span>
+                  <span className="hidden sm:inline">{point.title}</span>
                 </p>
                 <p className="mt-0.5 hidden text-xs text-muted sm:block">
                   {point.desc}
