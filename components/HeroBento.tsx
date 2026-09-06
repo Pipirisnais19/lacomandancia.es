@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IconChartBar } from "@tabler/icons-react";
+import { IconChartBar, IconMapPin } from "@tabler/icons-react";
 
 export default function HeroBento() {
   return (
@@ -27,21 +27,27 @@ export default function HeroBento() {
 
       <div className="relative mx-auto max-w-4xl px-4 py-6 text-center sm:px-6 sm:py-8 lg:px-8">
         <h1 className="text-glow-gold text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          El hogar del{" "}
-          <span className="text-gradient-shift">Commander Budget</span> en
-          España
+          Commander sin necesitar{" "}
+          <span className="text-gradient-shift">una fortuna</span>.
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
-          La comunidad de Commander más accesible de España.
+          El hogar del Commander Budget en España.
           <br className="hidden sm:block" /> Mazos limitados a{" "}
           <span className="font-semibold text-accent-gold">100€</span> (Sin
           Proxies).
         </p>
 
-        <div className="mt-6 flex items-center justify-center">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/torneos"
+            className="flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98]"
+          >
+            <IconMapPin className="h-4 w-4" strokeWidth={2} />
+            Encuentra un Torneo
+          </Link>
           <Link
             href="/mazos"
-            className="flex items-center justify-center gap-2 rounded-lg bg-accent-gold px-6 py-3 text-sm font-bold text-background shadow-lg shadow-accent-gold/25 transition-all hover:scale-[1.02] hover:bg-accent-gold-hover hover:shadow-accent-gold/50 active:scale-[0.98]"
+            className="flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
           >
             <IconChartBar className="h-4 w-4" strokeWidth={2} />
             Explorar Mazos
