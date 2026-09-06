@@ -37,7 +37,7 @@ export default function TournamentResults() {
             <Link
               key={t.slug}
               href={`/torneos/${t.slug}`}
-              className={`glass glow-border-hover group flex w-full max-w-md flex-col rounded-2xl p-6 hover:border-accent-gold/40 ${
+              className={`glass glow-border-hover group flex w-full max-w-md flex-col rounded-2xl p-5 hover:border-accent-gold/40 sm:p-6 ${
                 t.status === "en-curso" ? "gradient-border" : "border border-border/60"
               }`}
             >
@@ -77,7 +77,7 @@ export default function TournamentResults() {
                 </div>
               )}
 
-              <span className="mt-4 flex items-center gap-1 text-xs font-semibold text-accent-gold opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="mt-4 hidden items-center gap-1 text-xs font-semibold text-accent-gold opacity-0 transition-opacity group-hover:opacity-100 sm:flex">
                 Ver torneo
                 <IconArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
               </span>

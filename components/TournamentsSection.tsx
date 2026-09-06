@@ -17,7 +17,7 @@ export default function TournamentsSection() {
         </h2>
 
         <div className="mt-6 max-w-md">
-          <div className="glass glow-border-hover rounded-2xl border border-accent-green/25 p-6 hover:border-accent-green/50">
+          <div className="glass glow-border-hover rounded-2xl border border-accent-green/25 p-5 hover:border-accent-green/50 sm:p-6">
             <p className="text-[11px] font-bold uppercase tracking-widest text-accent-green">
               Tienda Amiga
             </p>

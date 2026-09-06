@@ -20,7 +20,7 @@ export default function MetagameGrid() {
               <IconTrophy className="h-3.5 w-3.5" strokeWidth={2.25} />
               Campeón
             </div>
-            <div className="relative h-64 w-full overflow-hidden bg-surface sm:h-80">
+            <div className="relative h-56 w-full overflow-hidden bg-surface sm:h-80">
               <Image
                 src={scryfallArtUrl(featured.scryfallName)}
                 alt={featured.commander}
@@ -31,7 +31,7 @@ export default function MetagameGrid() {
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-card via-card/60 to-transparent" />
             </div>
-            <div className="p-6">
+            <div className="p-5 sm:p-6">
               <p className={`text-xs font-semibold uppercase tracking-wide ${featured.colorAccent}`}>
                 {featured.guildName}
               </p>
