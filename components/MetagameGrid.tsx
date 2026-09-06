@@ -106,7 +106,7 @@ export default function MetagameGrid() {
                   <MoxfieldLink
                     href={deck.moxfieldUrl}
                     commander={deck.commander}
-                    className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
+                    className="-ml-1 mt-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
                   >
                     Ver en Moxfield
                     <IconExternalLink className="h-3 w-3" strokeWidth={2} />

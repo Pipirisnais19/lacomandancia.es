@@ -40,12 +40,12 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav aria-label="Navegación principal" className="hidden items-center gap-7 sm:flex">
+          <nav aria-label="Navegación principal" className="hidden items-center gap-6 sm:flex">
             {NAV_LINKS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-semibold text-muted transition-colors hover:text-accent-gold"
+                className="py-2 text-sm font-semibold text-muted transition-colors hover:text-accent-gold"
               >
                 {item.label}
               </Link>
@@ -58,7 +58,7 @@ export default function Header() {
             rel="noopener noreferrer"
             onClick={() => track("instagram_click")}
             aria-label="Síguenos en Instagram"
-            className="flex items-center gap-2 rounded-lg bg-accent-gold px-4 py-2 text-sm font-bold text-background shadow-lg shadow-accent-gold/20 transition-all hover:scale-[1.03] hover:bg-accent-gold-hover hover:shadow-accent-gold/40 active:scale-[0.98]"
+            className="flex items-center gap-2 rounded-lg bg-accent-gold px-4 py-2.5 text-sm font-bold text-background shadow-lg shadow-accent-gold/20 transition-all hover:scale-[1.03] hover:bg-accent-gold-hover hover:shadow-accent-gold/40 active:scale-[0.98]"
           >
             <IconBrandInstagram className="h-5 w-5" strokeWidth={1.75} />
             <span className="hidden sm:inline">Síguenos</span>
@@ -68,13 +68,13 @@ export default function Header() {
 
       <nav
         aria-label="Navegación principal"
-        className="no-scrollbar flex items-center gap-5 overflow-x-auto border-b border-border/60 bg-surface px-4 py-2.5 sm:hidden"
+        className="no-scrollbar flex items-center gap-4 overflow-x-auto border-b border-border/60 bg-surface px-4 sm:hidden"
       >
         {NAV_LINKS.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="shrink-0 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
+            className="shrink-0 py-3 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
           >
             {item.label}
           </Link>

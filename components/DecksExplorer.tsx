@@ -80,7 +80,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
             <span className="text-xs font-semibold uppercase tracking-wide text-muted">
               Colores
             </span>
-            <div className="flex gap-1.5">
+            <div className="flex gap-2">
               {COLORS.map((c) => (
                 <button
                   key={c}
@@ -88,12 +88,16 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   onClick={() => toggleColor(c)}
                   aria-pressed={colors.includes(c)}
                   aria-label={`Filtrar por color ${c}`}
-                  className={`h-6 w-6 rounded-full transition-all ${MANA_COLOR_CLASS[c]} ${
-                    colors.includes(c)
-                      ? "ring-2 ring-foreground ring-offset-2 ring-offset-card"
-                      : "opacity-40 hover:opacity-70"
-                  }`}
-                />
+                  className="group flex h-9 w-9 shrink-0 items-center justify-center"
+                >
+                  <span
+                    className={`h-6 w-6 rounded-full transition-all ${MANA_COLOR_CLASS[c]} ${
+                      colors.includes(c)
+                        ? "ring-2 ring-foreground ring-offset-2 ring-offset-card"
+                        : "opacity-40 group-hover:opacity-70"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -105,7 +109,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
-              className="rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground focus:border-accent-gold focus:outline-none"
+              className="rounded-lg border border-border bg-surface/80 px-3 py-2 text-xs font-semibold text-foreground focus:border-accent-gold focus:outline-none"
             >
               {DATE_RANGES.map((r) => (
                 <option key={r.value} value={r.value}>
@@ -176,7 +180,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   <MoxfieldLink
                     href={d.moxfieldUrl}
                     commander={d.commander}
-                    className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent-gold transition-colors hover:underline"
+                    className="-ml-1 mt-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-accent-gold transition-colors hover:underline"
                   >
                     Ver en Moxfield
                     <IconExternalLink className="h-3 w-3" strokeWidth={2} />

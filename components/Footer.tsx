@@ -26,12 +26,12 @@ export default function Footer() {
             </span>
           </Link>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             {LINKS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs font-semibold text-muted transition-colors hover:text-accent-gold sm:text-sm"
+                className="py-2 text-xs font-semibold text-muted transition-colors hover:text-accent-gold sm:text-sm"
               >
                 {item.label}
               </Link>
@@ -45,10 +45,10 @@ export default function Footer() {
           afiliado con Wizards of the Coast.
         </p>
 
-        <div className="mt-3 flex justify-center">
+        <div className="mt-1 flex justify-center">
           <Link
             href="/privacidad"
-            className="text-[11px] text-muted/70 transition-colors hover:text-accent-gold"
+            className="px-2 py-2 text-[11px] text-muted/70 transition-colors hover:text-accent-gold"
           >
             Política de Privacidad
           </Link>

@@ -295,7 +295,7 @@ export default async function TournamentPage({
                               <MoxfieldLink
                                 href={deck.moxfieldUrl}
                                 commander={deck.commander}
-                                className="shrink-0 text-muted transition-colors hover:text-accent-gold"
+                                className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
                               >
                                 <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
                                 <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
@@ -342,7 +342,7 @@ export default async function TournamentPage({
                               <MoxfieldLink
                                 href={deck.moxfieldUrl}
                                 commander={deck.commander}
-                                className="shrink-0 text-muted transition-colors hover:text-accent-gold"
+                                className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
                               >
                                 <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
                                 <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
