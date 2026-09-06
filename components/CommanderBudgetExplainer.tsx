@@ -32,19 +32,23 @@ export default function CommanderBudgetExplainer() {
           Que el presupuesto no decida quién puede sentarse a jugar.
         </p>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
           {POINTS.map((point) => (
             <div
               key={point.title}
-              className="glass flex items-start gap-3 rounded-xl border border-border/60 p-4"
+              className="glass flex flex-col items-center gap-1.5 rounded-xl border border-border/60 p-3 text-center sm:flex-row sm:items-start sm:gap-3 sm:p-4 sm:text-left"
             >
               <point.icon
                 className="h-5 w-5 shrink-0 text-accent-gold"
                 strokeWidth={1.75}
               />
               <div>
-                <p className="text-sm font-bold text-foreground">{point.title}</p>
-                <p className="mt-0.5 text-xs text-muted">{point.desc}</p>
+                <p className="text-xs font-bold leading-tight text-foreground sm:text-sm">
+                  {point.title}
+                </p>
+                <p className="mt-0.5 hidden text-xs text-muted sm:block">
+                  {point.desc}
+                </p>
               </div>
             </div>
           ))}
