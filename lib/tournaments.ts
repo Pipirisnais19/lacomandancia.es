@@ -38,6 +38,10 @@ export type Tournament = {
   rulesSections?: RulesSection[];
   champion?: TopDeck;
   top8?: TopDeck[];
+  /** Set when a finalizado tournament's results were never collected
+   * (as opposed to just not uploaded yet) — shows an honest note
+   * instead of a "coming soon" placeholder. */
+  resultsUnavailable?: boolean;
 };
 
 export const TOURNAMENTS: Tournament[] = [
@@ -53,6 +57,7 @@ export const TOURNAMENTS: Tournament[] = [
     dateISO: "2026-08-23",
     participants: 20,
     status: "finalizado",
+    resultsUnavailable: true,
     rulesSections: [
       {
         title: "Detalles del evento",

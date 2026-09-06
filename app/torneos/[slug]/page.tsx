@@ -196,6 +196,15 @@ export default async function TournamentPage({
             tournament.status === "en-curso" ||
             tournament.status === "finalizado") && (
             <>
+          {tournament.resultsUnavailable ? (
+            <section>
+              <h2 className="text-xl font-bold text-foreground">Resultados</h2>
+              <div className="glass mt-4 rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted">
+                No pudimos recopilar los mazos de este torneo.
+              </div>
+            </section>
+          ) : (
+            <>
           {/* Campeón */}
           <section>
             <h2 className="text-xl font-bold text-foreground">Mazo Campeón</h2>
@@ -351,6 +360,8 @@ export default async function TournamentPage({
               </div>
             )}
           </section>
+            </>
+          )}
             </>
           )}
 
