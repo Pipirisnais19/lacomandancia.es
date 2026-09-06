@@ -4,7 +4,7 @@ const POINTS = [
   {
     icon: IconCoin,
     title: "Accesible",
-    mobileTitle: "Accesible · menos de 100€",
+    mobileTitle: "Accesible · 100€",
     desc: "Mazos competitivos por menos de 100€.",
   },
   {
