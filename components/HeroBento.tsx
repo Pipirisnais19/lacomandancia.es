@@ -31,10 +31,7 @@ export default function HeroBento() {
           <span className="text-gradient-shift">una fortuna</span>.
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
-          El hogar del Commander Budget en España.
-          <br className="hidden sm:block" /> Mazos limitados a{" "}
-          <span className="font-semibold text-accent-gold">100€</span> (Sin
-          Proxies).
+          El hogar del Commander Budget.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
