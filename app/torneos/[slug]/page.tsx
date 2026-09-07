@@ -358,35 +358,6 @@ export default async function TournamentPage({
               </p>
 
               <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
-                Por combinación de color
-              </h3>
-              <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
-                {(() => {
-                  const rows = metagameBreakdown(tournament.fieldDecks);
-                  const max = Math.max(...rows.map((r) => r.count));
-                  return rows.map((row) => (
-                    <div key={row.guild} className="flex items-center gap-3">
-                      <div className="flex w-32 shrink-0 items-center gap-1.5 sm:w-40">
-                        <ColorPips colors={row.colors} />
-                        <span className="truncate text-sm font-semibold text-foreground">
-                          {row.guild}
-                        </span>
-                      </div>
-                      <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
-                        <div
-                          className="h-full rounded-full bg-accent-gold"
-                          style={{ width: `${(row.count / max) * 100}%` }}
-                        />
-                      </div>
-                      <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
-                        {row.count}
-                      </span>
-                    </div>
-                  ));
-                })()}
-              </div>
-
-              <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
                 Por color individual
               </h3>
               <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
@@ -405,6 +376,35 @@ export default async function TournamentPage({
                         <div
                           className={`h-full rounded-full ${MANA_COLOR_CLASS[row.color]}`}
                           style={{ width: max > 0 ? `${(row.count / max) * 100}%` : "0%" }}
+                        />
+                      </div>
+                      <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
+                        {row.count}
+                      </span>
+                    </div>
+                  ));
+                })()}
+              </div>
+
+              <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
+                Por combinación de color
+              </h3>
+              <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
+                {(() => {
+                  const rows = metagameBreakdown(tournament.fieldDecks);
+                  const max = Math.max(...rows.map((r) => r.count));
+                  return rows.map((row) => (
+                    <div key={row.guild} className="flex items-center gap-3">
+                      <div className="flex w-32 shrink-0 items-center gap-1.5 sm:w-40">
+                        <ColorPips colors={row.colors} />
+                        <span className="truncate text-sm font-semibold text-foreground">
+                          {row.guild}
+                        </span>
+                      </div>
+                      <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
+                        <div
+                          className="h-full rounded-full bg-accent-gold"
+                          style={{ width: `${(row.count / max) * 100}%` }}
                         />
                       </div>
                       <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
