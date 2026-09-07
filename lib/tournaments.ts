@@ -329,6 +329,9 @@ export type DeckRecord = {
   tournamentSlug: string;
   dateLabel: string;
   dateISO?: string;
+  /** Tope de presupuesto del torneo de origen (100, 20...), para poder
+   * distinguir mazos Budget 100€ de Ultrabudget 20€ en el explorador. */
+  cap: number;
 };
 
 export function getAllDecks(): DeckRecord[] {
@@ -347,6 +350,7 @@ export function getAllDecks(): DeckRecord[] {
         tournamentSlug: t.slug,
         dateLabel: t.dateLabel,
         dateISO: t.dateISO,
+        cap: t.cap,
       });
     }
 
@@ -363,6 +367,7 @@ export function getAllDecks(): DeckRecord[] {
           tournamentSlug: t.slug,
           dateLabel: t.dateLabel,
           dateISO: t.dateISO,
+          cap: t.cap,
         });
       }
     }

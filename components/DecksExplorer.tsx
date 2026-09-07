@@ -26,7 +26,10 @@ const BADGE_CLASS: Record<DeckRecord["result"], string> = {
 export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
   const [colors, setColors] = useState<ManaColor[]>([]);
   const [dateRange, setDateRange] = useState<string>("todas");
+  const [cap, setCap] = useState<string>("todos");
   const [query, setQuery] = useState("");
+
+  const caps = Array.from(new Set(decks.map((d) => d.cap))).sort((a, b) => b - a);
 
   function toggleColor(c: ManaColor) {
     setColors((prev) => (prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]));
@@ -37,6 +40,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
   const filtered = decks
     .filter((d) => {
       if (colors.length > 0 && !colors.every((c) => d.colorIdentity.includes(c))) return false;
+      if (cap !== "todos" && d.cap !== Number(cap)) return false;
       if (selectedRange?.days) {
         if (!d.dateISO) return false;
         const deckDate = new Date(d.dateISO);
@@ -50,11 +54,13 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
     })
     .sort((a, b) => a.commander.localeCompare(b.commander, "es"));
 
-  const hasActiveFilters = colors.length > 0 || dateRange !== "todas" || query.trim() !== "";
+  const hasActiveFilters =
+    colors.length > 0 || dateRange !== "todas" || cap !== "todos" || query.trim() !== "";
 
   function clearFilters() {
     setColors([]);
     setDateRange("todas");
+    setCap("todos");
     setQuery("");
   }
 
@@ -100,6 +106,24 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                 </button>
               ))}
             </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+              Presupuesto
+            </span>
+            <select
+              value={cap}
+              onChange={(e) => setCap(e.target.value)}
+              className="rounded-lg border border-border bg-surface/80 px-3 py-2 text-xs font-semibold text-foreground focus:border-accent-gold focus:outline-none"
+            >
+              <option value="todos">Todos</option>
+              {caps.map((c) => (
+                <option key={c} value={c}>
+                  {c}€
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="flex items-center gap-2">
@@ -158,6 +182,9 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                     {d.result}
                   </span>
                 )}
+                <span className="absolute right-2 top-2 rounded-full border border-border bg-card/90 px-2 py-0.5 text-[10px] font-bold text-foreground shadow-sm">
+                  {d.cap}€
+                </span>
               </div>
 
               <div className="flex flex-1 flex-col p-3">
