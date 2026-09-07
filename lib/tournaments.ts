@@ -27,6 +27,14 @@ export type RulesSection = {
   items: string[];
 };
 
+/** Un mazo del campo completo de un torneo, para el bloque de Metajuego
+ * — no lleva resultado ni Moxfield, a diferencia de TopDeck. */
+export type FieldDeck = {
+  commander: string;
+  colorIdentity: ManaColor[];
+  player?: string;
+};
+
 export type LeagueFormat = {
   jornadas: number;
   bestOf: number;
@@ -51,6 +59,9 @@ export type Tournament = {
   rulesSections?: RulesSection[];
   champion?: TopDeck;
   top8?: TopDeck[];
+  /** Campo completo del torneo (todos los mazos, no solo el Top), para
+   * mostrar la distribución de colores/guildas jugadas. */
+  fieldDecks?: FieldDeck[];
   /** Set when a finalizado tournament's results were never collected
    * (as opposed to just not uploaded yet) — shows an honest note
    * instead of a "coming soon" placeholder. */
@@ -103,6 +114,30 @@ export const TOURNAMENTS: Tournament[] = [
         moxfieldUrl: "https://moxfield.com/decks/PXqgAVbcznOyIxdpdwO2zQ",
         colorIdentity: ["W", "B", "R"],
       },
+    ],
+    fieldDecks: [
+      { player: "Rubén Sánchez", commander: "Maelstrom Wanderer", colorIdentity: ["U", "R", "G"] },
+      { player: "Javier Bueno", commander: "Dina, Soul Steeper", colorIdentity: ["B", "G"] },
+      { player: "Ernesto del Bosque Olmos", commander: "Kraven the Hunter", colorIdentity: ["B", "G"] },
+      { player: "Miguel Pradilla", commander: "Gilanra, Caller of Wirewood + Alena, Kessig Trapper", colorIdentity: ["R", "G"] },
+      { player: "Jesús Cuesta", commander: "Skullbriar, the Walking Grave", colorIdentity: ["B", "G"] },
+      { player: "Víctor Palomino", commander: "Vren, the Relentless", colorIdentity: ["U", "B"] },
+      { player: "David Minguela", commander: "Kutzil, Malamet Exemplar", colorIdentity: ["W", "G"] },
+      { player: "Rubén de Luis", commander: "Hei Bai, Spirit of Balance", colorIdentity: ["W", "B"] },
+      { player: "Luana", commander: "Doran, Besieged by Time", colorIdentity: ["W", "B", "G"] },
+      { player: "Josito Diaz", commander: "Prowler, Clawed Thief", colorIdentity: ["U", "B"] },
+      { player: "Adrian Dominguez", commander: "Feather, the Redeemed", colorIdentity: ["W", "R"] },
+      { player: "Jesús Sánchez", commander: "Gisa and Geralf", colorIdentity: ["U", "B"] },
+      { player: "Juan Puebla", commander: "Fynn, the Fangbearer", colorIdentity: ["G"] },
+      { player: "Néstor Méndez", commander: "Three Dog, Galaxy News DJ", colorIdentity: ["W", "R"] },
+      { player: "NameLess", commander: "Zada, Hedron Grinder", colorIdentity: ["R"] },
+      { player: "Miguel Pérez", commander: "The Earth King", colorIdentity: ["G"] },
+      { player: "Tako", commander: "Unesh, Criosphinx Sovereign", colorIdentity: ["U"] },
+      { player: "Javi", commander: "Kotis, the Fangkeeper", colorIdentity: ["U", "B", "G"] },
+      { player: "Gonzalo", commander: "Raph & Mikey, Troublemakers", colorIdentity: ["R", "G"] },
+      { player: "Gonzalo", commander: "Vadmir, New Blood", colorIdentity: ["B"] },
+      { player: "Ana", commander: "Adeline, Resplendent Cathar", colorIdentity: ["W"] },
+      { player: "Roy", commander: "Zurgo Helmsmasher", colorIdentity: ["W", "B", "R"] },
     ],
     rulesSections: [
       {

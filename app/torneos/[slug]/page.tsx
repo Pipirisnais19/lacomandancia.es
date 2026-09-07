@@ -16,7 +16,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TOURNAMENTS, getTournamentBySlug } from "@/lib/tournaments";
 import { scryfallArtUrl } from "@/lib/scryfall";
-import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
+import { MANA_COLOR_CLASS, metagameBreakdown, type ManaColor } from "@/lib/metagame";
 import MoxfieldLink from "@/components/MoxfieldLink";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
@@ -347,6 +347,41 @@ export default async function TournamentPage({
             </section>
           )}
             </>
+          )}
+
+          {/* Metajuego: distribución de colores del campo completo */}
+          {tournament.fieldDecks && tournament.fieldDecks.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-xl font-bold text-foreground">Metajuego</h2>
+              <p className="mt-1 text-sm text-muted">
+                Distribución de colores de los {tournament.fieldDecks.length} mazos del torneo.
+              </p>
+              <div className="glass mt-4 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
+                {(() => {
+                  const rows = metagameBreakdown(tournament.fieldDecks);
+                  const max = Math.max(...rows.map((r) => r.count));
+                  return rows.map((row) => (
+                    <div key={row.guild} className="flex items-center gap-3">
+                      <div className="flex w-32 shrink-0 items-center gap-1.5 sm:w-40">
+                        <ColorPips colors={row.colors} />
+                        <span className="truncate text-sm font-semibold text-foreground">
+                          {row.guild}
+                        </span>
+                      </div>
+                      <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
+                        <div
+                          className="h-full rounded-full bg-accent-gold"
+                          style={{ width: `${(row.count / max) * 100}%` }}
+                        />
+                      </div>
+                      <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
+                        {row.count}
+                      </span>
+                    </div>
+                  ));
+                })()}
+              </div>
+            </section>
           )}
 
           {/* Formato de la liga (torneos no finalizados) */}

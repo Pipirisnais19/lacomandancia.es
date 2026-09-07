@@ -61,3 +61,28 @@ export function accentFor(
   if (colors.includes("U")) return "text-accent-blue";
   return "text-accent-gold";
 }
+
+export type MetagameRow = {
+  guild: string;
+  colors: ManaColor[];
+  count: number;
+};
+
+/** Agrupa una lista de mazos por identidad de color (guilda) y cuenta
+ * cuántos hay de cada una, de mayor a menor — para el bloque de
+ * Metajuego en la página de un torneo. */
+export function metagameBreakdown(decks: { colorIdentity: ManaColor[] }[]): MetagameRow[] {
+  const buckets = new Map<string, { colors: ManaColor[]; count: number }>();
+  for (const deck of decks) {
+    const key = colorKey(deck.colorIdentity);
+    const existing = buckets.get(key);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      buckets.set(key, { colors: deck.colorIdentity, count: 1 });
+    }
+  }
+  return Array.from(buckets.values())
+    .map(({ colors, count }) => ({ guild: guildNameFor(colors), colors, count }))
+    .sort((a, b) => b.count - a.count || a.guild.localeCompare(b.guild, "es"));
+}
