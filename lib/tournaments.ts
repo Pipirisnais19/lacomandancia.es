@@ -243,8 +243,8 @@ export const TOURNAMENTS: Tournament[] = [
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
     organizerName: "Panda Games",
-    dateLabel: "En curso (8 jornadas)",
-    status: "en-curso",
+    dateLabel: "Sábados alternos, 11h y 17h (quedan 7 jornadas)",
+    status: "proximo",
     format: {
       jornadas: 8,
       bestOf: 4,
@@ -254,7 +254,7 @@ export const TOURNAMENTS: Tournament[] = [
       priceBreakdown: "3 € a premios del día, 2 € al pool acumulado para la final.",
     },
     jornadas: [
-      { number: 1, dateLabel: "Sábado 5 de septiembre de 2026", status: "finalizado" },
+      { number: 1, dateLabel: "Sábado 5 de septiembre de 2026, 11:00h", status: "finalizado" },
       { number: 2, dateLabel: "Fecha por confirmar", status: "proximo" },
       { number: 3, dateLabel: "Fecha por confirmar", status: "proximo" },
       { number: 4, dateLabel: "Fecha por confirmar", status: "proximo" },
