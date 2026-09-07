@@ -55,7 +55,13 @@ export async function generateMetadata({
   const tournament = getTournamentBySlug(slug);
   if (!tournament) return {};
   const title = `${tournament.name} | La Comandancia`;
-  const description = `${tournament.name} — ${tournament.venue}. ${tournament.dateLabel}.`;
+  let description = `${tournament.name} — ${tournament.venue}. ${tournament.dateLabel}.`;
+  if (tournament.champion) {
+    description += ` Campeón: ${tournament.champion.player} con ${tournament.champion.commander}.`;
+  }
+  if (tournament.fieldDecks && tournament.fieldDecks.length > 0) {
+    description += " Incluye análisis del metajuego: colores, cartas más jugadas y curva de maná.";
+  }
   return {
     title,
     description,
@@ -79,12 +85,17 @@ export default async function TournamentPage({
   const tournament = getTournamentBySlug(slug);
   if (!tournament) notFound();
 
-  const eventJsonLd = tournament.dateISO
+  // Las ligas en curso no tienen una fecha única propia (dateISO):
+  // se usa la de la primera jornada con fecha conocida como respaldo,
+  // para que la página siga teniendo structured data de SportsEvent.
+  const effectiveStartDate = tournament.dateISO ?? tournament.jornadas?.find((j) => j.dateISO)?.dateISO;
+
+  const eventJsonLd = effectiveStartDate
     ? {
         "@context": "https://schema.org",
         "@type": "SportsEvent",
         name: tournament.name,
-        startDate: tournament.dateISO,
+        startDate: effectiveStartDate,
         eventStatus: "https://schema.org/EventScheduled",
         image: "https://www.lacomandancia.es/opengraph-image",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",

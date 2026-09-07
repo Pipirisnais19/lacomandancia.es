@@ -253,7 +253,7 @@ export const TOURNAMENTS: Tournament[] = [
       priceBreakdown: "3 € a premios del día, 2 € al pool acumulado para la final.",
     },
     jornadas: [
-      { number: 1, dateLabel: "Sábado 5 de septiembre de 2026, 11:00h", status: "finalizado" },
+      { number: 1, dateLabel: "Sábado 5 de septiembre de 2026, 11:00h", dateISO: "2026-09-05", status: "finalizado" },
       { number: 2, dateLabel: "Fecha por confirmar", status: "proximo" },
       { number: 3, dateLabel: "Fecha por confirmar", status: "proximo" },
       { number: 4, dateLabel: "Fecha por confirmar", status: "proximo" },

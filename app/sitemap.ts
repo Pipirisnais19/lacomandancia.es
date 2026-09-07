@@ -45,12 +45,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const tournamentRoutes: MetadataRoute.Sitemap = TOURNAMENTS.map((t) => ({
-    url: `${BASE_URL}/torneos/${t.slug}`,
-    ...(t.dateISO && { lastModified: t.dateISO }),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  const tournamentRoutes: MetadataRoute.Sitemap = TOURNAMENTS.map((t) => {
+    // Las ligas en curso no tienen dateISO propio; se usa la fecha de
+    // la primera jornada con fecha conocida como respaldo.
+    const lastModified = t.dateISO ?? t.jornadas?.find((j) => j.dateISO)?.dateISO;
+    return {
+      url: `${BASE_URL}/torneos/${t.slug}`,
+      ...(lastModified && { lastModified }),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    };
+  });
 
   return [...staticRoutes, ...articleRoutes, ...tournamentRoutes];
 }

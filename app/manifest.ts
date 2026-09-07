@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Torneos, mazos, metajuego y comunidad de Commander Budget en España.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0a12",
-    theme_color: "#0a0a12",
+    background_color: "#0d0b0a",
+    theme_color: "#0d0b0a",
     lang: "es-ES",
     icons: [
       {
