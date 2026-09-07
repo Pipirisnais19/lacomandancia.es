@@ -85,6 +85,10 @@ export type Tournament = {
   topCards?: TopCard[];
   /** Curva de maná promedio del campo, para el bloque de Metajuego. */
   manaCurve?: ManaCurvePoint[];
+  /** Promedio de tierras totales (básicas + no básicas) por mazo, se
+   * agrega como columna final a la curva de maná para completar la
+   * composición del mazo. */
+  avgLandsPerDeck?: number;
   /** Set when a finalizado tournament's results were never collected
    * (as opposed to just not uploaded yet) — shows an honest note
    * instead of a "coming soon" placeholder. */
@@ -183,6 +187,7 @@ export const TOURNAMENTS: Tournament[] = [
       { cmc: "5", avgPerDeck: 3.1 },
       { cmc: "6+", avgPerDeck: 6.5 },
     ],
+    avgLandsPerDeck: 37.9,
     rulesSections: [
       {
         title: "Detalles del evento",

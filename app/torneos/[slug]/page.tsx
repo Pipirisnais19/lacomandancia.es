@@ -456,36 +456,42 @@ export default async function TournamentPage({
                     Curva de maná
                   </h3>
                   <p className="mt-0.5 text-xs text-muted">
-                    Cartas por mazo (promedio) según su coste de maná, sin tierras.
+                    Cartas por mazo (promedio) según su coste de maná, más el total de tierras.
                   </p>
                   <div className="glass mt-2 rounded-xl border border-border/60 p-5">
                     {(() => {
-                      const max = Math.max(...tournament.manaCurve.map((p) => p.avgPerDeck));
+                      const bars: { label: string; value: number; land?: boolean }[] = [
+                        ...tournament.manaCurve.map((p) => ({ label: p.cmc, value: p.avgPerDeck })),
+                        ...(tournament.avgLandsPerDeck
+                          ? [{ label: "Tierras", value: tournament.avgLandsPerDeck, land: true }]
+                          : []),
+                      ];
+                      const max = Math.max(...bars.map((b) => b.value));
                       return (
                         <>
                           <div className="flex h-36 items-end gap-2 sm:gap-4">
-                            {tournament.manaCurve.map((point) => (
+                            {bars.map((bar) => (
                               <div
-                                key={point.cmc}
+                                key={bar.label}
                                 className="flex h-full flex-1 flex-col items-center justify-end gap-1.5"
                               >
                                 <span className="text-xs font-bold text-foreground">
-                                  {point.avgPerDeck.toFixed(1)}
+                                  {bar.value.toFixed(1)}
                                 </span>
                                 <div
-                                  className="w-full max-w-10 rounded-t-md bg-accent-gold"
-                                  style={{ height: `${Math.max((point.avgPerDeck / max) * 100, 3)}%` }}
+                                  className={`w-full max-w-10 rounded-t-md ${bar.land ? "bg-[#8b6f47]" : "bg-accent-gold"}`}
+                                  style={{ height: `${Math.max((bar.value / max) * 100, 3)}%` }}
                                 />
                               </div>
                             ))}
                           </div>
                           <div className="mt-2 flex gap-2 sm:gap-4">
-                            {tournament.manaCurve.map((point) => (
+                            {bars.map((bar) => (
                               <span
-                                key={point.cmc}
+                                key={bar.label}
                                 className="flex-1 text-center text-xs font-semibold text-muted"
                               >
-                                {point.cmc}
+                                {bar.label}
                               </span>
                             ))}
                           </div>
