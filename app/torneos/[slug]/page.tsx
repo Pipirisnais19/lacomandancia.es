@@ -136,7 +136,7 @@ export default async function TournamentPage({
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_20%_0%,rgba(255,87,87,0.18),transparent)]"
           />
-          <div className="relative mx-auto max-w-5xl px-4 py-7 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
             <Link
               href="/torneos"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
@@ -191,7 +191,7 @@ export default async function TournamentPage({
           </div>
         </div>
 
-        <div className="mx-auto max-w-5xl px-4 py-7 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
           {(tournament.champion ||
             tournament.status === "en-curso" ||
             tournament.status === "finalizado") && (
@@ -204,163 +204,147 @@ export default async function TournamentPage({
               </div>
             </section>
           ) : (
-            <>
-          {/* Campeón */}
-          <section>
-            <h2 className="text-xl font-bold text-foreground">Mazo Campeón</h2>
-            {tournament.champion ? (
-              <div className="gradient-border glass glow-border group relative mt-4 overflow-hidden rounded-2xl">
-                <div className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-accent-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-background">
-                  <IconTrophy className="h-3.5 w-3.5" strokeWidth={2.25} />
-                  Campeón
-                </div>
-                <div className="relative h-56 w-full overflow-hidden bg-surface">
-                  <Image
-                    src={scryfallArtUrl(tournament.champion.scryfallName)}
-                    alt={tournament.champion.commander}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 896px, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
-                </div>
-                <div className="p-6">
-                  <h3 className="flex flex-wrap items-center gap-2 text-xl font-bold text-foreground">
-                    {tournament.champion.commander}
-                    <ColorPips colors={tournament.champion.colorIdentity} />
-                  </h3>
-                  {tournament.champion.player && (
-                    <p className="mt-1 text-sm text-muted">
-                      Piloteado por {tournament.champion.player}
-                    </p>
-                  )}
-                  {tournament.champion.moxfieldUrl && (
-                    <MoxfieldLink
-                      href={tournament.champion.moxfieldUrl}
-                      commander={tournament.champion.commander}
-                      className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
-                    >
-                      Ver Mazo en Moxfield
-                      <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                    </MoxfieldLink>
-                  )}
-                </div>
-              </div>
-            ) : (
-              <div className="glass mt-4 rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted">
-                {tournament.status === "en-curso"
-                  ? "La final se está jugando ahora mismo — el mazo campeón se publica al terminar."
-                  : "Resultados pendientes."}
-              </div>
-            )}
-          </section>
-
-          {/* Top 8 */}
-          <section className="mt-10">
-            {tournament.top8 && tournament.top8.length > 0 ? (
-              <>
-                {tournament.top8.some((d) => d.tier === "top4") && (
-                  <div>
-                    <div className="flex flex-col gap-3">
-                      {tournament.top8
-                        .filter((d) => d.tier === "top4")
-                        .map((deck) => (
-                          <div
-                            key={deck.commander}
-                            className="glass flex items-center gap-3 overflow-hidden rounded-xl border border-accent-gold/25 p-3"
-                          >
-                            <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-accent-gold">
-                              Top4
-                            </span>
-                            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
-                              <Image
-                                src={scryfallArtUrl(deck.scryfallName)}
-                                alt={deck.commander}
-                                fill
-                                sizes="48px"
-                                className="object-cover"
-                              />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <p className="flex flex-wrap items-center gap-1.5 truncate text-sm font-bold text-foreground">
-                                {deck.commander}
-                                <ColorPips colors={deck.colorIdentity} />
-                              </p>
-                              {deck.player && (
-                                <p className="truncate text-xs text-muted">{deck.player}</p>
-                              )}
-                            </div>
-                            {deck.moxfieldUrl && (
-                              <MoxfieldLink
-                                href={deck.moxfieldUrl}
-                                commander={deck.commander}
-                                className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
-                              >
-                                <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
-                                <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                              </MoxfieldLink>
-                            )}
-                          </div>
-                        ))}
+            <section>
+              <h2 className="text-xl font-bold text-foreground">Resultados</h2>
+              <div className="mt-4 flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:items-start">
+                {tournament.champion ? (
+                  <div className="gradient-border glass glow-border group relative overflow-hidden rounded-2xl lg:col-span-2">
+                    <div className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-accent-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-background">
+                      <IconTrophy className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      Campeón
                     </div>
+                    <div className="relative h-56 w-full overflow-hidden bg-surface sm:h-80">
+                      <Image
+                        src={scryfallArtUrl(tournament.champion.scryfallName)}
+                        alt={tournament.champion.commander}
+                        fill
+                        priority
+                        sizes="(min-width: 1024px) 66vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
+                    </div>
+                    <div className="p-5 sm:p-6">
+                      <h3 className="flex flex-wrap items-center gap-2 text-xl font-bold text-foreground">
+                        {tournament.champion.commander}
+                        <ColorPips colors={tournament.champion.colorIdentity} />
+                      </h3>
+                      {tournament.champion.player && (
+                        <p className="mt-1 text-sm text-muted">
+                          Piloteado por {tournament.champion.player}
+                        </p>
+                      )}
+                      {tournament.champion.moxfieldUrl && (
+                        <MoxfieldLink
+                          href={tournament.champion.moxfieldUrl}
+                          commander={tournament.champion.commander}
+                          className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
+                        >
+                          Ver Mazo en Moxfield
+                          <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+                        </MoxfieldLink>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="glass rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted lg:col-span-2">
+                    {tournament.status === "en-curso"
+                      ? "La final se está jugando ahora mismo — el mazo campeón se publica al terminar."
+                      : "Resultados pendientes."}
                   </div>
                 )}
 
-                {tournament.top8.some((d) => d.tier === "top8") && (
-                  <div className="mt-6">
-                    <div className="flex flex-col gap-3">
-                      {tournament.top8
-                        .filter((d) => d.tier === "top8")
-                        .map((deck) => (
-                          <div
-                            key={deck.commander}
-                            className="glass flex items-center gap-3 overflow-hidden rounded-xl border border-border/60 p-3"
-                          >
-                            <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-muted">
-                              Top8
-                            </span>
-                            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
-                              <Image
-                                src={scryfallArtUrl(deck.scryfallName)}
-                                alt={deck.commander}
-                                fill
-                                sizes="48px"
-                                className="object-cover"
-                              />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <p className="flex flex-wrap items-center gap-1.5 truncate text-sm font-bold text-foreground">
-                                {deck.commander}
-                                <ColorPips colors={deck.colorIdentity} />
-                              </p>
-                              {deck.player && (
-                                <p className="truncate text-xs text-muted">{deck.player}</p>
-                              )}
-                            </div>
-                            {deck.moxfieldUrl && (
-                              <MoxfieldLink
-                                href={deck.moxfieldUrl}
-                                commander={deck.commander}
-                                className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
-                              >
-                                <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
-                                <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                              </MoxfieldLink>
+                {tournament.top8 && tournament.top8.length > 0 ? (
+                  <div className="flex flex-col gap-3 lg:col-start-3">
+                    {tournament.top8
+                      .filter((d) => d.tier === "top4")
+                      .map((deck) => (
+                        <div
+                          key={deck.commander}
+                          className="glass flex items-center gap-3 overflow-hidden rounded-xl border border-accent-gold/25 p-3"
+                        >
+                          <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-accent-gold">
+                            Top4
+                          </span>
+                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
+                            <Image
+                              src={scryfallArtUrl(deck.scryfallName)}
+                              alt={deck.commander}
+                              fill
+                              sizes="48px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="flex flex-wrap items-center gap-1.5 truncate text-sm font-bold text-foreground">
+                              {deck.commander}
+                              <ColorPips colors={deck.colorIdentity} />
+                            </p>
+                            {deck.player && (
+                              <p className="truncate text-xs text-muted">{deck.player}</p>
                             )}
                           </div>
-                        ))}
-                    </div>
+                          {deck.moxfieldUrl && (
+                            <MoxfieldLink
+                              href={deck.moxfieldUrl}
+                              commander={deck.commander}
+                              className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
+                            >
+                              <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
+                              <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+                            </MoxfieldLink>
+                          )}
+                        </div>
+                      ))}
+
+                    {tournament.top8
+                      .filter((d) => d.tier === "top8")
+                      .map((deck) => (
+                        <div
+                          key={deck.commander}
+                          className="glass flex items-center gap-3 overflow-hidden rounded-xl border border-border/60 p-3"
+                        >
+                          <span className="w-10 shrink-0 text-[10px] font-bold uppercase tracking-wide text-muted">
+                            Top8
+                          </span>
+                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-surface">
+                            <Image
+                              src={scryfallArtUrl(deck.scryfallName)}
+                              alt={deck.commander}
+                              fill
+                              sizes="48px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="flex flex-wrap items-center gap-1.5 truncate text-sm font-bold text-foreground">
+                              {deck.commander}
+                              <ColorPips colors={deck.colorIdentity} />
+                            </p>
+                            {deck.player && (
+                              <p className="truncate text-xs text-muted">{deck.player}</p>
+                            )}
+                          </div>
+                          {deck.moxfieldUrl && (
+                            <MoxfieldLink
+                              href={deck.moxfieldUrl}
+                              commander={deck.commander}
+                              className="-m-2 shrink-0 p-2 text-muted transition-colors hover:text-accent-gold"
+                            >
+                              <span className="sr-only">{`Ver ${deck.commander} en Moxfield`}</span>
+                              <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+                            </MoxfieldLink>
+                          )}
+                        </div>
+                      ))}
+                  </div>
+                ) : (
+                  <div className="glass flex items-center justify-center rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted lg:col-start-3">
+                    Resultados pendientes — vuelve pronto.
                   </div>
                 )}
-              </>
-            ) : (
-              <div className="glass mt-4 rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted">
-                Resultados pendientes — vuelve pronto.
               </div>
-            )}
-          </section>
-            </>
+            </section>
           )}
             </>
           )}
@@ -402,7 +386,7 @@ export default async function TournamentPage({
             <section className="mt-10">
               <h2 className="text-xl font-bold text-foreground">Reglas</h2>
               {tournament.rulesSections ? (
-                <div className="mt-4 flex flex-col gap-6">
+                <div className="mt-4 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {tournament.rulesSections.map((section) => (
                     <div
                       key={section.title}
