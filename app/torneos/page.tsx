@@ -165,12 +165,12 @@ export default function TorneosPage() {
             </h2>
 
             {finalizados.length > 0 ? (
-              <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-5 flex flex-wrap gap-4">
                 {finalizados.map((t) => (
                   <Link
                     key={t.slug}
                     href={`/torneos/${t.slug}`}
-                    className="glass glow-border-hover group flex flex-col rounded-2xl border border-border/60 p-6 hover:border-accent-gold/40"
+                    className="glass glow-border-hover group flex w-full max-w-md flex-col rounded-2xl border border-border/60 p-6 hover:border-accent-gold/40"
                   >
                     <div className="flex items-center justify-between gap-2">
                       <span
