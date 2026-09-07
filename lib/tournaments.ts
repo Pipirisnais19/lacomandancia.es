@@ -36,10 +36,13 @@ export type FieldDeck = {
 };
 
 /** Una carta y en cuántos mazos del campo apareció (tierras básicas
- * excluidas), para el ranking de cartas más jugadas en Metajuego. */
+ * excluidas), para el ranking de cartas más jugadas en Metajuego.
+ * `color` es el color de la carta (undefined = incolora: artefacto o
+ * tierra no básica). */
 export type TopCard = {
   name: string;
   count: number;
+  color?: ManaColor;
 };
 
 export type LeagueFormat = {
@@ -153,10 +156,10 @@ export const TOURNAMENTS: Tournament[] = [
       { name: "Sol Ring", count: 14 },
       { name: "Arcane Signet", count: 13 },
       { name: "Command Tower", count: 13 },
-      { name: "Rampant Growth", count: 6 },
-      { name: "Snakeskin Veil", count: 6 },
-      { name: "Forgotten Ancient", count: 5 },
-      { name: "Llanowar Elves", count: 5 },
+      { name: "Rampant Growth", count: 6, color: "G" },
+      { name: "Snakeskin Veil", count: 6, color: "G" },
+      { name: "Forgotten Ancient", count: 5, color: "G" },
+      { name: "Llanowar Elves", count: 5, color: "G" },
       { name: "Mind Stone", count: 5 },
       { name: "Exotic Orchard", count: 4 },
       { name: "Heraldic Banner", count: 4 },
