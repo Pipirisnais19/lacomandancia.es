@@ -57,6 +57,40 @@ export const TOURNAMENTS: Tournament[] = [
     dateISO: "2026-09-06",
     participants: 21,
     status: "finalizado",
+    champion: {
+      tier: "top4",
+      commander: "Vren, the Relentless",
+      scryfallName: "Vren, the Relentless",
+      player: "xa0s3nd3r",
+      moxfieldUrl: "https://moxfield.com/decks/PXqgAW8ceX621NLn7wCSvg",
+      colorIdentity: ["U", "B"],
+    },
+    top8: [
+      {
+        tier: "top4",
+        commander: "Kutzil, Malamet Exemplar",
+        scryfallName: "Kutzil, Malamet Exemplar",
+        player: "Rinnegan",
+        moxfieldUrl: "https://moxfield.com/decks/P3qgARIsrnuVPUnIrn3Tfg",
+        colorIdentity: ["W", "G"],
+      },
+      {
+        tier: "top4",
+        commander: "Prowler, Clawed Thief",
+        scryfallName: "Prowler, Clawed Thief",
+        player: "jositoloqillo",
+        moxfieldUrl: "https://moxfield.com/decks/PnqgAd3BUX6ngV4FGNqtNQ",
+        colorIdentity: ["U", "B"],
+      },
+      {
+        tier: "top4",
+        commander: "Zurgo Helmsmasher",
+        scryfallName: "Zurgo Helmsmasher",
+        player: "RoyAwesome",
+        moxfieldUrl: "https://moxfield.com/decks/PXqgAVbcznOyIxdpdwO2zQ",
+        colorIdentity: ["W", "B", "R"],
+      },
+    ],
     rulesSections: [
       {
         title: "Detalles del evento",
