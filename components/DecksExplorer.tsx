@@ -182,9 +182,6 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                     {d.result}
                   </span>
                 )}
-                <span className="absolute right-2 top-2 rounded-full border border-border bg-card/90 px-2 py-0.5 text-[10px] font-bold text-foreground shadow-sm">
-                  {d.cap}€
-                </span>
               </div>
 
               <div className="flex flex-1 flex-col p-3">
@@ -203,16 +200,23 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   {d.dateLabel}
                 </p>
 
-                {d.moxfieldUrl && (
-                  <MoxfieldLink
-                    href={d.moxfieldUrl}
-                    commander={d.commander}
-                    className="-ml-1 mt-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-accent-gold transition-colors hover:underline"
-                  >
-                    Ver en Moxfield
-                    <IconExternalLink className="h-3 w-3" strokeWidth={2} />
-                  </MoxfieldLink>
-                )}
+                <div className="mt-auto flex items-end justify-between gap-2 pt-1">
+                  {d.moxfieldUrl ? (
+                    <MoxfieldLink
+                      href={d.moxfieldUrl}
+                      commander={d.commander}
+                      className="-ml-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-accent-gold transition-colors hover:underline"
+                    >
+                      Ver en Moxfield
+                      <IconExternalLink className="h-3 w-3" strokeWidth={2} />
+                    </MoxfieldLink>
+                  ) : (
+                    <span />
+                  )}
+                  <span className="shrink-0 rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-bold text-muted">
+                    {d.cap}€
+                  </span>
+                </div>
               </div>
             </div>
           ))}
