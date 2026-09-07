@@ -430,7 +430,13 @@ export default async function TournamentPage({
                           </span>
                           <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
                             <div
-                              className={`h-full rounded-full ${card.color ? MANA_COLOR_CLASS[card.color] : "bg-muted"}`}
+                              className={`h-full rounded-full ${
+                                card.color
+                                  ? MANA_COLOR_CLASS[card.color]
+                                  : card.land
+                                    ? "bg-[#8b6f47]"
+                                    : "bg-muted"
+                              }`}
                               style={{ width: `${(card.count / max) * 100}%` }}
                             />
                           </div>
