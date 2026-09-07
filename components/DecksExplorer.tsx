@@ -5,7 +5,7 @@ import Image from "next/image";
 import { IconExternalLink, IconSearch, IconX } from "@tabler/icons-react";
 import { scryfallCardImageUrl } from "@/lib/scryfall";
 import { MANA_COLOR_CLASS, type ManaColor } from "@/lib/metagame";
-import type { DeckRecord } from "@/lib/tournaments";
+import { formatDate, type DeckRecord } from "@/lib/tournaments";
 import MoxfieldLink from "./MoxfieldLink";
 
 const COLORS: ManaColor[] = ["W", "U", "B", "R", "G"];
@@ -197,7 +197,7 @@ export default function DecksExplorer({ decks }: { decks: DeckRecord[] }) {
                   <p className="mt-1.5 truncate text-xs text-muted">{d.player}</p>
                 )}
                 <p className="mt-0.5 truncate text-[11px] text-muted/70">
-                  {d.dateLabel}
+                  {d.dateISO ? formatDate(d.dateISO) : d.dateLabel}
                 </p>
 
                 <div className="mt-auto flex items-end justify-between gap-2 pt-1">

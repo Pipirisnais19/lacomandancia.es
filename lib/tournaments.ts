@@ -1,5 +1,18 @@
 import type { ManaColor } from "./metagame";
 
+/** Fecha corta homogénea ("9 de agosto de 2026"), sin hora ni prefijos
+ * como "Final:" — para listados donde solo importa la fecha, como las
+ * tarjetas de mazo en /mazos (a diferencia de dateLabel, pensado para
+ * mostrarse junto al torneo, con más contexto). */
+export function formatDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 export type TopDeck = {
   tier: "top4" | "top8";
   commander: string;
