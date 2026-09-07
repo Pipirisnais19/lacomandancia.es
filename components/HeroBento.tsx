@@ -25,7 +25,7 @@ export default function HeroBento() {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-4 py-6 text-center sm:px-6 sm:py-10 lg:px-8 lg:py-14">
+      <div className="relative mx-auto max-w-4xl px-4 py-6 text-center sm:px-6 sm:py-10 lg:px-8 lg:py-20">
         <h1 className="text-glow-gold text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Commander sin necesitar{" "}
           <span className="text-gradient-shift">una fortuna</span>.
