@@ -192,7 +192,7 @@ export default async function TournamentPage({
         </div>
 
         <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
-          {(tournament.champion ||
+          {!tournament.jornadas && (tournament.champion ||
             tournament.status === "en-curso" ||
             tournament.status === "finalizado") && (
             <>
@@ -506,7 +506,13 @@ export default async function TournamentPage({
 
           {/* Formato de la liga (torneos no finalizados) */}
           {tournament.status !== "finalizado" && tournament.format && (
-            <section className={tournament.champion || tournament.status === "en-curso" ? "mt-10" : ""}>
+            <section
+              className={
+                !tournament.jornadas && (tournament.champion || tournament.status === "en-curso")
+                  ? "mt-10"
+                  : ""
+              }
+            >
               <h2 className="text-xl font-bold text-foreground">
                 Formato de la Liga
               </h2>
@@ -532,6 +538,57 @@ export default async function TournamentPage({
                   </p>
                   <p className="text-xs text-muted">{tournament.format.priceBreakdown}</p>
                 </div>
+              </div>
+            </section>
+          )}
+
+          {/* Jornadas de la liga */}
+          {tournament.jornadas && tournament.jornadas.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-xl font-bold text-foreground">Jornadas</h2>
+              <p className="mt-1 text-sm text-muted">
+                Cada jornada es un mini-torneo aparte; sus puntos suman para la
+                clasificación de la final de la liga.
+              </p>
+              <div className="mt-4 flex flex-col gap-3">
+                {tournament.jornadas.map((jornada) => (
+                  <div
+                    key={jornada.number}
+                    className="glass rounded-xl border border-border/60 p-4"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-sm font-bold text-foreground">
+                        Jornada {jornada.number}
+                      </span>
+                      <span
+                        className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide ${STATUS_CLASS[jornada.status]}`}
+                      >
+                        {jornada.status === "en-curso" && (
+                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-red" />
+                        )}
+                        {STATUS_LABEL[jornada.status]}
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+                      <IconCalendarStats className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                      {jornada.dateLabel}
+                    </div>
+                    {jornada.champion ? (
+                      <div className="mt-3 flex items-center gap-2 rounded-lg border border-accent-gold/25 bg-accent-gold/5 px-3 py-2">
+                        <IconTrophy className="h-4 w-4 shrink-0 text-accent-gold" strokeWidth={1.75} />
+                        <p className="min-w-0 text-xs text-foreground">
+                          <span className="font-bold">{jornada.champion.player}</span>{" "}
+                          <span className="text-muted">con</span>{" "}
+                          <span className="font-semibold">{jornada.champion.commander}</span>
+                        </p>
+                      </div>
+                    ) : (
+                      jornada.status === "finalizado" && (
+                        <p className="mt-3 text-xs text-muted">Resultados pendientes.</p>
+                      )
+                    )}
+                  </div>
+                ))}
               </div>
             </section>
           )}

@@ -22,6 +22,19 @@ export type TopDeck = {
   colorIdentity: ManaColor[];
 };
 
+/** Una jornada de una liga: un mini-torneo con su propio ganador, que
+ * suma puntos a la clasificación acumulada de cara a la final de la
+ * liga (la final, al terminar las jornadas, es más relevante y se
+ * publica como su propio torneo — igual que "Final de 2da Liga"). */
+export type JornadaResult = {
+  number: number;
+  dateLabel: string;
+  dateISO?: string;
+  status: "proximo" | "en-curso" | "finalizado";
+  champion?: TopDeck;
+  top8?: TopDeck[];
+};
+
 export type RulesSection = {
   title: string;
   items: string[];
@@ -77,6 +90,10 @@ export type Tournament = {
   rulesSections?: RulesSection[];
   champion?: TopDeck;
   top8?: TopDeck[];
+  /** Jornadas de una liga (cada una con su propio mini-resultado). Si
+   * está presente, la página del torneo muestra la lista de jornadas
+   * en vez del bloque de Resultados de un solo campeón. */
+  jornadas?: JornadaResult[];
   /** Campo completo del torneo (todos los mazos, no solo el Top), para
    * mostrar la distribución de colores/guildas jugadas. */
   fieldDecks?: FieldDeck[];
@@ -221,13 +238,13 @@ export const TOURNAMENTS: Tournament[] = [
   },
   {
     slug: "3a-liga-commander-budget-100-panda-games",
-    name: "1ra Jornada - 3ra Liga Panda Games 100€",
+    name: "3ra Liga Panda Games 100€",
     cap: 100,
     venue: "Panda Games (Alcorcón)",
     venueUrl: "https://pandagames.es",
     organizerName: "Panda Games",
-    dateLabel: "Sábado 5 o 12 de septiembre de 2026 (fecha final pendiente)",
-    status: "proximo",
+    dateLabel: "En curso (8 jornadas)",
+    status: "en-curso",
     format: {
       jornadas: 8,
       bestOf: 4,
@@ -236,6 +253,16 @@ export const TOURNAMENTS: Tournament[] = [
       price: "5 €",
       priceBreakdown: "3 € a premios del día, 2 € al pool acumulado para la final.",
     },
+    jornadas: [
+      { number: 1, dateLabel: "Sábado 5 de septiembre de 2026", status: "finalizado" },
+      { number: 2, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 3, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 4, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 5, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 6, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 7, dateLabel: "Fecha por confirmar", status: "proximo" },
+      { number: 8, dateLabel: "Fecha por confirmar", status: "proximo" },
+    ],
   },
   {
     slug: "commander-budget-100-micelion-games-septiembre",
