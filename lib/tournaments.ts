@@ -35,6 +35,13 @@ export type FieldDeck = {
   player?: string;
 };
 
+/** Una carta y en cuántos mazos del campo apareció (tierras básicas
+ * excluidas), para el ranking de cartas más jugadas en Metajuego. */
+export type TopCard = {
+  name: string;
+  count: number;
+};
+
 export type LeagueFormat = {
   jornadas: number;
   bestOf: number;
@@ -62,6 +69,9 @@ export type Tournament = {
   /** Campo completo del torneo (todos los mazos, no solo el Top), para
    * mostrar la distribución de colores/guildas jugadas. */
   fieldDecks?: FieldDeck[];
+  /** Top de cartas más repetidas entre los mazos del campo (tierras
+   * básicas excluidas), para el bloque de Metajuego. */
+  topCards?: TopCard[];
   /** Set when a finalizado tournament's results were never collected
    * (as opposed to just not uploaded yet) — shows an honest note
    * instead of a "coming soon" placeholder. */
@@ -138,6 +148,18 @@ export const TOURNAMENTS: Tournament[] = [
       { player: "Gonzalo", commander: "Vadmir, New Blood", colorIdentity: ["B"] },
       { player: "Ana", commander: "Adeline, Resplendent Cathar", colorIdentity: ["W"] },
       { player: "Roy", commander: "Zurgo Helmsmasher", colorIdentity: ["W", "B", "R"] },
+    ],
+    topCards: [
+      { name: "Sol Ring", count: 14 },
+      { name: "Arcane Signet", count: 13 },
+      { name: "Command Tower", count: 13 },
+      { name: "Rampant Growth", count: 6 },
+      { name: "Snakeskin Veil", count: 6 },
+      { name: "Forgotten Ancient", count: 5 },
+      { name: "Llanowar Elves", count: 5 },
+      { name: "Mind Stone", count: 5 },
+      { name: "Exotic Orchard", count: 4 },
+      { name: "Heraldic Banner", count: 4 },
     ],
     rulesSections: [
       {

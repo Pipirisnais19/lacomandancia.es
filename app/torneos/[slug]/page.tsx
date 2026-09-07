@@ -414,6 +414,35 @@ export default async function TournamentPage({
                   ));
                 })()}
               </div>
+
+              {tournament.topCards && tournament.topCards.length > 0 && (
+                <>
+                  <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
+                    Cartas más jugadas (sin tierras básicas)
+                  </h3>
+                  <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
+                    {(() => {
+                      const max = Math.max(...tournament.topCards.map((c) => c.count));
+                      return tournament.topCards.map((card) => (
+                        <div key={card.name} className="flex items-center gap-3">
+                          <span className="w-32 shrink-0 truncate text-sm font-semibold text-foreground sm:w-40">
+                            {card.name}
+                          </span>
+                          <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
+                            <div
+                              className="h-full rounded-full bg-accent-gold"
+                              style={{ width: `${(card.count / max) * 100}%` }}
+                            />
+                          </div>
+                          <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
+                            {card.count}
+                          </span>
+                        </div>
+                      ));
+                    })()}
+                  </div>
+                </>
+              )}
             </section>
           )}
 
