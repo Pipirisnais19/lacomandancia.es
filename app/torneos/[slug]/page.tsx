@@ -357,20 +357,6 @@ export default async function TournamentPage({
                 Distribución de colores de los mazos del torneo.
               </p>
 
-              {tournament.avgDeckPriceEur && (
-                <div className="glass mt-5 inline-flex items-center gap-3 rounded-xl border border-border/60 p-4">
-                  <IconCoin className="h-6 w-6 shrink-0 text-accent-gold" strokeWidth={1.5} />
-                  <div>
-                    <p className="text-lg font-bold text-foreground">
-                      {tournament.avgDeckPriceEur.toFixed(2)} € de media
-                    </p>
-                    <p className="text-xs text-muted">
-                      Precio de mercado en Cardmarket, promedio del campo (tope del torneo: {tournament.cap} €)
-                    </p>
-                  </div>
-                </div>
-              )}
-
               <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
                 Por color individual
               </h3>
@@ -467,8 +453,11 @@ export default async function TournamentPage({
               {tournament.manaCurve && tournament.manaCurve.length > 0 && (
                 <>
                   <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
-                    Curva de maná (promedio por mazo, sin tierras)
+                    Curva de maná
                   </h3>
+                  <p className="mt-0.5 text-xs text-muted">
+                    Cartas por mazo (promedio) según su coste de maná, sin tierras.
+                  </p>
                   <div className="glass mt-2 rounded-xl border border-border/60 p-5">
                     {(() => {
                       const max = Math.max(...tournament.manaCurve.map((p) => p.avgPerDeck));

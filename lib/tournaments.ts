@@ -83,8 +83,6 @@ export type Tournament = {
   /** Top de cartas más repetidas entre los mazos del campo (tierras
    * básicas excluidas), para el bloque de Metajuego. */
   topCards?: TopCard[];
-  /** Precio promedio del mazo (Cardmarket, €) entre los mazos del campo. */
-  avgDeckPriceEur?: number;
   /** Curva de maná promedio del campo, para el bloque de Metajuego. */
   manaCurve?: ManaCurvePoint[];
   /** Set when a finalizado tournament's results were never collected
@@ -176,7 +174,6 @@ export const TOURNAMENTS: Tournament[] = [
       { name: "Exotic Orchard", count: 4, land: true },
       { name: "Heraldic Banner", count: 4 },
     ],
-    avgDeckPriceEur: 20.81,
     manaCurve: [
       { cmc: "0", avgPerDeck: 0.1 },
       { cmc: "1", avgPerDeck: 10.0 },
