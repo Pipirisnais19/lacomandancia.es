@@ -46,6 +46,13 @@ export type TopCard = {
   land?: boolean;
 };
 
+/** Cuántos hechizos del campo (tierras excluidas) caen en cada coste
+ * de maná, promediado por mazo, para la curva de maná de Metajuego. */
+export type ManaCurvePoint = {
+  cmc: "0" | "1" | "2" | "3" | "4" | "5" | "6+";
+  avgPerDeck: number;
+};
+
 export type LeagueFormat = {
   jornadas: number;
   bestOf: number;
@@ -76,6 +83,10 @@ export type Tournament = {
   /** Top de cartas más repetidas entre los mazos del campo (tierras
    * básicas excluidas), para el bloque de Metajuego. */
   topCards?: TopCard[];
+  /** Precio promedio del mazo (Cardmarket, €) entre los mazos del campo. */
+  avgDeckPriceEur?: number;
+  /** Curva de maná promedio del campo, para el bloque de Metajuego. */
+  manaCurve?: ManaCurvePoint[];
   /** Set when a finalizado tournament's results were never collected
    * (as opposed to just not uploaded yet) — shows an honest note
    * instead of a "coming soon" placeholder. */
@@ -164,6 +175,16 @@ export const TOURNAMENTS: Tournament[] = [
       { name: "Mind Stone", count: 5 },
       { name: "Exotic Orchard", count: 4, land: true },
       { name: "Heraldic Banner", count: 4 },
+    ],
+    avgDeckPriceEur: 20.81,
+    manaCurve: [
+      { cmc: "0", avgPerDeck: 0.1 },
+      { cmc: "1", avgPerDeck: 10.0 },
+      { cmc: "2", avgPerDeck: 20.3 },
+      { cmc: "3", avgPerDeck: 12.6 },
+      { cmc: "4", avgPerDeck: 7.0 },
+      { cmc: "5", avgPerDeck: 3.1 },
+      { cmc: "6+", avgPerDeck: 6.5 },
     ],
     rulesSections: [
       {

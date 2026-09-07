@@ -357,6 +357,20 @@ export default async function TournamentPage({
                 Distribución de colores de los mazos del torneo.
               </p>
 
+              {tournament.avgDeckPriceEur && (
+                <div className="glass mt-5 inline-flex items-center gap-3 rounded-xl border border-border/60 p-4">
+                  <IconCoin className="h-6 w-6 shrink-0 text-accent-gold" strokeWidth={1.5} />
+                  <div>
+                    <p className="text-lg font-bold text-foreground">
+                      {tournament.avgDeckPriceEur.toFixed(2)} € de media
+                    </p>
+                    <p className="text-xs text-muted">
+                      Precio de mercado en Cardmarket, promedio del campo (tope del torneo: {tournament.cap} €)
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
                 Por color individual
               </h3>
@@ -445,6 +459,49 @@ export default async function TournamentPage({
                           </span>
                         </div>
                       ));
+                    })()}
+                  </div>
+                </>
+              )}
+
+              {tournament.manaCurve && tournament.manaCurve.length > 0 && (
+                <>
+                  <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
+                    Curva de maná (promedio por mazo, sin tierras)
+                  </h3>
+                  <div className="glass mt-2 rounded-xl border border-border/60 p-5">
+                    {(() => {
+                      const max = Math.max(...tournament.manaCurve.map((p) => p.avgPerDeck));
+                      return (
+                        <>
+                          <div className="flex h-36 items-end gap-2 sm:gap-4">
+                            {tournament.manaCurve.map((point) => (
+                              <div
+                                key={point.cmc}
+                                className="flex h-full flex-1 flex-col items-center justify-end gap-1.5"
+                              >
+                                <span className="text-xs font-bold text-foreground">
+                                  {point.avgPerDeck.toFixed(1)}
+                                </span>
+                                <div
+                                  className="w-full max-w-10 rounded-t-md bg-accent-gold"
+                                  style={{ height: `${Math.max((point.avgPerDeck / max) * 100, 3)}%` }}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-2 flex gap-2 sm:gap-4">
+                            {tournament.manaCurve.map((point) => (
+                              <span
+                                key={point.cmc}
+                                className="flex-1 text-center text-xs font-semibold text-muted"
+                              >
+                                {point.cmc}
+                              </span>
+                            ))}
+                          </div>
+                        </>
+                      );
                     })()}
                   </div>
                 </>
