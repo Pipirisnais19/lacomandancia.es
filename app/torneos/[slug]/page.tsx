@@ -354,7 +354,7 @@ export default async function TournamentPage({
             <section className="mt-10">
               <h2 className="text-xl font-bold text-foreground">Metajuego</h2>
               <p className="mt-1 text-sm text-muted">
-                Distribución de colores de los {tournament.fieldDecks.length} mazos del torneo.
+                Distribución de colores de los mazos del torneo.
               </p>
 
               <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
