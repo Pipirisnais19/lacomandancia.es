@@ -456,7 +456,7 @@ export default async function TournamentPage({
                     Curva de maná
                   </h3>
                   <p className="mt-0.5 text-xs text-muted">
-                    Cartas por mazo (promedio) según su coste de maná, más el total de tierras.
+                    Composición por Curva de Maná (incluyendo tierras)
                   </p>
                   <div className="glass mt-2 rounded-xl border border-border/60 p-5">
                     {(() => {
