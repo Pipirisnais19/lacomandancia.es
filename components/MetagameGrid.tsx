@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { IconExternalLink, IconTrophy } from "@tabler/icons-react";
 import { scryfallArtUrl } from "@/lib/scryfall";
-import { DECKS, MANA_COLOR_CLASS } from "@/lib/metagame";
+import { MANA_COLOR_CLASS, guildNameFor, accentFor } from "@/lib/metagame";
+import { getFeaturedTournament } from "@/lib/tournaments";
 import MoxfieldLink from "./MoxfieldLink";
 
 export default function MetagameGrid() {
-  const [featured, ...rest] = DECKS;
+  const tournament = getFeaturedTournament();
+  const featured = tournament?.champion;
+
+  if (!tournament || !featured) return null;
+
+  const rest = (tournament.top8 ?? []).slice(0, 3);
 
   return (
     <section id="metajuego" className="ambient-blue overflow-hidden border-b border-border bg-background">
@@ -14,7 +20,7 @@ export default function MetagameGrid() {
           Mazos Destacados
         </h2>
 
-        <div className="mt-6 flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:items-start">
+        <div className="mt-6 flex flex-col gap-4 lg:grid lg:grid-cols-3">
           <article className="gradient-border glass glow-border-hover group relative overflow-hidden rounded-2xl hover:border-accent-gold/50 lg:col-span-2">
             <div className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-accent-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-background">
               <IconTrophy className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -32,8 +38,8 @@ export default function MetagameGrid() {
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-card via-card/60 to-transparent" />
             </div>
             <div className="p-5 sm:p-6">
-              <p className={`text-xs font-semibold uppercase tracking-wide ${featured.colorAccent}`}>
-                {featured.guildName}
+              <p className={`text-xs font-semibold uppercase tracking-wide ${accentFor(featured.colorIdentity)}`}>
+                {guildNameFor(featured.colorIdentity)}
               </p>
               <h3 className="mt-1 text-2xl font-bold text-foreground">
                 {featured.commander}
@@ -42,11 +48,11 @@ export default function MetagameGrid() {
               <div className="mt-4 grid grid-cols-3 gap-4 text-sm">
                 <div>
                   <p className="text-muted">Resultado</p>
-                  <p className="text-lg font-bold text-accent-gold">{featured.result}</p>
+                  <p className="text-lg font-bold text-accent-gold">Campeón</p>
                 </div>
                 <div>
                   <p className="text-muted">Jugador</p>
-                  <p className="text-lg font-bold text-foreground">{featured.player}</p>
+                  <p className="text-lg font-bold text-foreground">{featured.player ?? "—"}</p>
                 </div>
                 <div>
                   <p className="text-muted">Colores</p>
@@ -59,16 +65,20 @@ export default function MetagameGrid() {
               </div>
 
               <div className="mt-5 flex items-center justify-between gap-2">
-                <MoxfieldLink
-                  href={featured.moxfieldUrl}
-                  commander={featured.commander}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
-                >
-                  Ver Mazo en Moxfield
-                  <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-                </MoxfieldLink>
+                {featured.moxfieldUrl ? (
+                  <MoxfieldLink
+                    href={featured.moxfieldUrl}
+                    commander={featured.commander}
+                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
+                  >
+                    Ver Mazo en Moxfield
+                    <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+                  </MoxfieldLink>
+                ) : (
+                  <span />
+                )}
                 <span className="shrink-0 rounded-full border border-border bg-surface/60 px-2.5 py-1 text-xs font-bold text-muted">
-                  {featured.cap}€
+                  {tournament.cap}€
                 </span>
               </div>
             </div>
@@ -78,7 +88,7 @@ export default function MetagameGrid() {
             {rest.map((deck) => (
               <article
                 key={deck.commander}
-                className="glass glow-border-hover group flex overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50 lg:shrink-0"
+                className="glass glow-border-hover group flex overflow-hidden rounded-2xl border border-border/60 hover:border-accent-gold/50 lg:flex-1"
               >
                 <div className="relative w-28 shrink-0 overflow-hidden bg-surface min-[480px]:w-24 sm:w-36">
                   <Image
@@ -92,15 +102,15 @@ export default function MetagameGrid() {
                 </div>
 
                 <div className="flex flex-1 flex-col justify-center p-4">
-                  <p className={`text-[11px] font-semibold uppercase tracking-wide ${deck.colorAccent}`}>
-                    {deck.guildName}
+                  <p className={`text-[11px] font-semibold uppercase tracking-wide ${accentFor(deck.colorIdentity)}`}>
+                    {guildNameFor(deck.colorIdentity)}
                   </p>
                   <h3 className="mt-0.5 text-sm font-bold leading-snug text-foreground">
                     {deck.commander}
                   </h3>
 
                   <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
-                    <span className="text-muted">{deck.player}</span>
+                    {deck.player && <span className="text-muted">{deck.player}</span>}
                     <span className="flex gap-1">
                       {deck.colorIdentity.map((c) => (
                         <span key={c} className={`h-2.5 w-2.5 rounded-full ${MANA_COLOR_CLASS[c]}`} />
@@ -109,16 +119,20 @@ export default function MetagameGrid() {
                   </div>
 
                   <div className="mt-2 flex items-center justify-between gap-2">
-                    <MoxfieldLink
-                      href={deck.moxfieldUrl}
-                      commander={deck.commander}
-                      className="-ml-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
-                    >
-                      Ver en Moxfield
-                      <IconExternalLink className="h-3 w-3" strokeWidth={2} />
-                    </MoxfieldLink>
+                    {deck.moxfieldUrl ? (
+                      <MoxfieldLink
+                        href={deck.moxfieldUrl}
+                        commander={deck.commander}
+                        className="-ml-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
+                      >
+                        Ver en Moxfield
+                        <IconExternalLink className="h-3 w-3" strokeWidth={2} />
+                      </MoxfieldLink>
+                    ) : (
+                      <span />
+                    )}
                     <span className="shrink-0 rounded-full border border-border bg-surface/60 px-2 py-0.5 text-[10px] font-bold text-muted">
-                      {deck.cap}€
+                      {tournament.cap}€
                     </span>
                   </div>
                 </div>

@@ -318,6 +318,15 @@ export function getTournamentBySlug(slug: string): Tournament | undefined {
   return TOURNAMENTS.find((t) => t.slug === slug);
 }
 
+/** El torneo con resultados (campeón cargado) más reciente por fecha,
+ * para secciones como "Mazos Destacados" que siempre muestran el
+ * último Top disponible en vez de una lista curada a mano. */
+export function getFeaturedTournament(): Tournament | undefined {
+  return TOURNAMENTS.filter((t) => t.champion)
+    .slice()
+    .sort((a, b) => (b.dateISO ?? "").localeCompare(a.dateISO ?? ""))[0];
+}
+
 export type DeckRecord = {
   commander: string;
   scryfallName: string;
