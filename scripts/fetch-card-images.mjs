@@ -18,6 +18,9 @@ const CARD_NAMES = [
   "Sokka, Tenacious Tactician",
   "Talion, the Kindly Lord",
   "Kadena, Slinking Sorcerer",
+  "Kutzil, Malamet Exemplar",
+  "Prowler, Clawed Thief",
+  "Zurgo Helmsmasher",
 ];
 
 const VERSIONS = [
