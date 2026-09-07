@@ -9,7 +9,7 @@ import {
 } from "@tabler/icons-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TOURNAMENTS } from "@/lib/tournaments";
+import { TOURNAMENTS, isLeagueOngoing } from "@/lib/tournaments";
 
 export const metadata: Metadata = {
   title: "Torneos de Commander Budget en Madrid | La Comandancia",
@@ -105,14 +105,27 @@ export default function TorneosPage() {
 
             {proximos.length > 0 ? (
               <div className="mt-5 flex flex-wrap gap-4">
-                {proximos.map((t) => (
+                {proximos.map((t) => {
+                  const ongoing = isLeagueOngoing(t);
+                  return (
                   <div
                     key={t.slug}
-                    className="glass flex w-full max-w-md flex-col rounded-2xl border border-accent-gold/30 p-6"
+                    className={
+                      ongoing
+                        ? "gradient-border glass flex w-full max-w-md flex-col rounded-2xl p-6"
+                        : "glass flex w-full max-w-md flex-col rounded-2xl border border-accent-gold/30 p-6"
+                    }
                   >
-                    <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-gold">
-                      Próximamente
-                    </span>
+                    {ongoing ? (
+                      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-red/40 bg-accent-red/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-red">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-red" />
+                        En Curso
+                      </span>
+                    ) : (
+                      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-gold">
+                        Próximamente
+                      </span>
+                    )}
 
                     <h3 className="mt-3 text-base font-bold leading-snug text-foreground">
                       {t.name}
@@ -147,7 +160,8 @@ export default function TorneosPage() {
                       )}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="glass mt-5 rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted">

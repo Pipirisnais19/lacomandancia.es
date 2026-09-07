@@ -442,6 +442,15 @@ export function getTournamentBySlug(slug: string): Tournament | undefined {
   return TOURNAMENTS.find((t) => t.slug === slug);
 }
 
+/** Una liga (status "proximo", con jornadas) donde ya se jugó al menos
+ * una jornada — se sigue mostrando en Próximos Torneos, pero destacada
+ * como "En Curso" en vez de "Próximamente". Se deriva de las jornadas
+ * en vez de un campo aparte, para que se actualice sola semana a
+ * semana sin tener que tocarlo a mano. */
+export function isLeagueOngoing(t: Tournament): boolean {
+  return !!t.jornadas?.some((j) => j.status !== "proximo");
+}
+
 /** El torneo con resultados (campeón cargado) más reciente por fecha,
  * para secciones como "Mazos Destacados" que siempre muestran el
  * último Top disponible en vez de una lista curada a mano. */
