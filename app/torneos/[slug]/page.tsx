@@ -16,7 +16,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { TOURNAMENTS, getTournamentBySlug } from "@/lib/tournaments";
 import { scryfallArtUrl } from "@/lib/scryfall";
-import { MANA_COLOR_CLASS, metagameBreakdown, type ManaColor } from "@/lib/metagame";
+import { MANA_COLOR_CLASS, metagameBreakdown, colorCounts, type ManaColor } from "@/lib/metagame";
 import MoxfieldLink from "@/components/MoxfieldLink";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
@@ -356,7 +356,11 @@ export default async function TournamentPage({
               <p className="mt-1 text-sm text-muted">
                 Distribución de colores de los {tournament.fieldDecks.length} mazos del torneo.
               </p>
-              <div className="glass mt-4 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
+
+              <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
+                Por combinación de color
+              </h3>
+              <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
                 {(() => {
                   const rows = metagameBreakdown(tournament.fieldDecks);
                   const max = Math.max(...rows.map((r) => r.count));
@@ -372,6 +376,35 @@ export default async function TournamentPage({
                         <div
                           className="h-full rounded-full bg-accent-gold"
                           style={{ width: `${(row.count / max) * 100}%` }}
+                        />
+                      </div>
+                      <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">
+                        {row.count}
+                      </span>
+                    </div>
+                  ));
+                })()}
+              </div>
+
+              <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
+                Por color individual
+              </h3>
+              <div className="glass mt-2 flex flex-col gap-3 rounded-xl border border-border/60 p-5">
+                {(() => {
+                  const rows = colorCounts(tournament.fieldDecks);
+                  const max = Math.max(...rows.map((r) => r.count));
+                  return rows.map((row) => (
+                    <div key={row.color} className="flex items-center gap-3">
+                      <div className="flex w-32 shrink-0 items-center gap-1.5 sm:w-40">
+                        <span className={`h-3.5 w-3.5 shrink-0 rounded-full ${MANA_COLOR_CLASS[row.color]}`} />
+                        <span className="truncate text-sm font-semibold text-foreground">
+                          {row.label}
+                        </span>
+                      </div>
+                      <div className="h-5 flex-1 overflow-hidden rounded-full bg-surface">
+                        <div
+                          className={`h-full rounded-full ${MANA_COLOR_CLASS[row.color]}`}
+                          style={{ width: max > 0 ? `${(row.count / max) * 100}%` : "0%" }}
                         />
                       </div>
                       <span className="w-6 shrink-0 text-right text-sm font-bold text-foreground">

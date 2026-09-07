@@ -86,3 +86,30 @@ export function metagameBreakdown(decks: { colorIdentity: ManaColor[] }[]): Meta
     .map(({ colors, count }) => ({ guild: guildNameFor(colors), colors, count }))
     .sort((a, b) => b.count - a.count || a.guild.localeCompare(b.guild, "es"));
 }
+
+const COLOR_NAMES: Record<ManaColor, string> = {
+  W: "Blanco",
+  U: "Azul",
+  B: "Negro",
+  R: "Rojo",
+  G: "Verde",
+};
+
+const WUBRG: ManaColor[] = ["W", "U", "B", "R", "G"];
+
+export type ColorCountRow = {
+  color: ManaColor;
+  label: string;
+  count: number;
+};
+
+/** Cuenta, para cada uno de los 5 colores, en cuántos mazos aparece
+ * (un mazo de 3 colores suma en cada uno de los 3) — en orden WUBRG
+ * fijo, para el desglose de "color predominante" en Metajuego. */
+export function colorCounts(decks: { colorIdentity: ManaColor[] }[]): ColorCountRow[] {
+  return WUBRG.map((color) => ({
+    color,
+    label: COLOR_NAMES[color],
+    count: decks.filter((d) => d.colorIdentity.includes(color)).length,
+  }));
+}
