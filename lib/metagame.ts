@@ -58,6 +58,28 @@ export const DECKS: DeckEntry[] = [
     moxfieldUrl: "https://moxfield.com/decks/6uefAavwH3aqyLKkItEX1Q",
     cap: 100,
   },
+  {
+    commander: "Vren, the Relentless",
+    scryfallName: "Vren, the Relentless",
+    result: "Campeón",
+    player: "xa0s3nd3r",
+    colorIdentity: ["U", "B"],
+    guildName: "Dimir",
+    colorAccent: "text-accent-purple",
+    moxfieldUrl: "https://moxfield.com/decks/PXqgAW8ceX621NLn7wCSvg",
+    cap: 20,
+  },
+  {
+    commander: "Kutzil, Malamet Exemplar",
+    scryfallName: "Kutzil, Malamet Exemplar",
+    result: "Top 4",
+    player: "Rinnegan",
+    colorIdentity: ["W", "G"],
+    guildName: "Selesnya",
+    colorAccent: "text-accent-green",
+    moxfieldUrl: "https://moxfield.com/decks/P3qgARIsrnuVPUnIrn3Tfg",
+    cap: 20,
+  },
 ];
 
 export const MANA_COLOR_CLASS: Record<ManaColor, string> = {
