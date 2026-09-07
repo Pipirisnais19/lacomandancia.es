@@ -185,14 +185,14 @@ export const TOURNAMENTS: Tournament[] = [
     topCards: [
       { name: "Arcane Signet", count: 13 },
       { name: "Sol Ring", count: 13 },
+      { name: "Command Tower", count: 12, land: true },
       { name: "Mind Stone", count: 6 },
       { name: "Rampant Growth", count: 6, color: "G" },
       { name: "Snakeskin Veil", count: 6, color: "G" },
       { name: "Forgotten Ancient", count: 5, color: "G" },
       { name: "Heraldic Banner", count: 5 },
       { name: "Llanowar Elves", count: 5, color: "G" },
-      { name: "Inscription of Abundance", count: 4, color: "G" },
-      { name: "Shared Roots", count: 4, color: "G" },
+      { name: "Exotic Orchard", count: 4, land: true },
     ],
     manaCurve: [
       { cmc: "0", avgPerDeck: 0.1 },
