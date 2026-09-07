@@ -352,9 +352,9 @@ export default async function TournamentPage({
           {/* Metajuego: distribución de colores del campo completo */}
           {tournament.fieldDecks && tournament.fieldDecks.length > 0 && (
             <section className="mt-10">
-              <h2 className="text-xl font-bold text-foreground">Metajuego</h2>
+              <h2 className="text-xl font-bold text-foreground">Análisis del Metajuego</h2>
               <p className="mt-1 text-sm text-muted">
-                Distribución de colores de los mazos del torneo.
+                Colores, cartas y curva de maná de los mazos del torneo.
               </p>
 
               <h3 className="mt-5 text-xs font-bold uppercase tracking-wide text-muted">
