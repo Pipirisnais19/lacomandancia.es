@@ -9,6 +9,8 @@ export type DeckEntry = {
   guildName: string;
   colorAccent: "text-accent-gold" | "text-accent-blue" | "text-accent-purple" | "text-accent-red" | "text-accent-green";
   moxfieldUrl: string;
+  /** Tope de presupuesto del torneo de origen (100, 20...). */
+  cap: number;
 };
 
 export const DECKS: DeckEntry[] = [
@@ -21,6 +23,7 @@ export const DECKS: DeckEntry[] = [
     guildName: "Esper",
     colorAccent: "text-accent-purple",
     moxfieldUrl: "https://moxfield.com/decks/6uefAdXRMHmM1C9PoYungQ",
+    cap: 100,
   },
   {
     commander: "Omo, Queen of Vesuva",
@@ -31,6 +34,7 @@ export const DECKS: DeckEntry[] = [
     guildName: "Simic",
     colorAccent: "text-accent-green",
     moxfieldUrl: "https://moxfield.com/decks/6uefAW1daHGWgd8WBY74kA",
+    cap: 100,
   },
   {
     commander: "Sokka, Tenacious Tactician",
@@ -41,6 +45,7 @@ export const DECKS: DeckEntry[] = [
     guildName: "Jeskai",
     colorAccent: "text-accent-red",
     moxfieldUrl: "https://moxfield.com/decks/6uefAQJ8CHul_r5zuJzfsw",
+    cap: 100,
   },
   {
     commander: "Hope Estheim",
@@ -51,6 +56,7 @@ export const DECKS: DeckEntry[] = [
     guildName: "Azorius",
     colorAccent: "text-accent-blue",
     moxfieldUrl: "https://moxfield.com/decks/6uefAavwH3aqyLKkItEX1Q",
+    cap: 100,
   },
 ];
 

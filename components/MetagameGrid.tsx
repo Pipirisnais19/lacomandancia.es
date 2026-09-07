@@ -58,14 +58,19 @@ export default function MetagameGrid() {
                 </div>
               </div>
 
-              <MoxfieldLink
-                href={featured.moxfieldUrl}
-                commander={featured.commander}
-                className="mt-5 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
-              >
-                Ver Mazo en Moxfield
-                <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
-              </MoxfieldLink>
+              <div className="mt-5 flex items-center justify-between gap-2">
+                <MoxfieldLink
+                  href={featured.moxfieldUrl}
+                  commander={featured.commander}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-accent-gold hover:text-accent-gold"
+                >
+                  Ver Mazo en Moxfield
+                  <IconExternalLink className="h-4 w-4" strokeWidth={1.75} />
+                </MoxfieldLink>
+                <span className="shrink-0 rounded-full border border-border bg-surface/60 px-2.5 py-1 text-xs font-bold text-muted">
+                  {featured.cap}€
+                </span>
+              </div>
             </div>
           </article>
 
@@ -103,14 +108,19 @@ export default function MetagameGrid() {
                     </span>
                   </div>
 
-                  <MoxfieldLink
-                    href={deck.moxfieldUrl}
-                    commander={deck.commander}
-                    className="-ml-1 mt-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
-                  >
-                    Ver en Moxfield
-                    <IconExternalLink className="h-3 w-3" strokeWidth={2} />
-                  </MoxfieldLink>
+                  <div className="mt-2 flex items-center justify-between gap-2">
+                    <MoxfieldLink
+                      href={deck.moxfieldUrl}
+                      commander={deck.commander}
+                      className="-ml-1 inline-flex items-center gap-1 px-1 py-1.5 text-xs font-semibold text-muted transition-colors hover:text-accent-gold"
+                    >
+                      Ver en Moxfield
+                      <IconExternalLink className="h-3 w-3" strokeWidth={2} />
+                    </MoxfieldLink>
+                    <span className="shrink-0 rounded-full border border-border bg-surface/60 px-2 py-0.5 text-[10px] font-bold text-muted">
+                      {deck.cap}€
+                    </span>
+                  </div>
                 </div>
               </article>
             ))}
